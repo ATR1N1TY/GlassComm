@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { RiShoppingCartLine } from "react-icons/ri";
 import { RiShoppingCartFill } from "react-icons/ri";
 import { RiShoppingCart2Fill } from "react-icons/ri";
@@ -18,13 +19,15 @@ const Navbar = () => {
           <li>Contact</li>
         </ul>
       </div>
-      <div className="name text-3xl absolute -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 hover:animate-pulse">
-        <div className="logo w-full h-2 flex ">
-          <div className="orange w-1/2 h-full bg-amber-900 "></div>
-          <div className="blue w-1/2 h-full bg-yellow-200 "></div>
+      <Link href="/">
+        <div className="name text-3xl absolute -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 hover:animate-pulse">
+          <div className="logo w-full h-2 flex ">
+            <div className="orange w-1/2 h-full bg-amber-900 "></div>
+            <div className="blue w-1/2 h-full bg-yellow-200 "></div>
+          </div>
+          GlassComm
         </div>
-        GlassComm
-      </div>
+      </Link>
       <div className="links flex text-2xl">
         <div className="cart-status mr-4">
           <RiShoppingCartLine />
