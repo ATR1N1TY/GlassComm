@@ -6,7 +6,7 @@ import { RiShoppingCartLine } from "react-icons/ri";
 
 const ProductCard = () => {
   return (
-    <div className="productCard relative  glass w-72 h-96 rounded-2xl overflow-hidden cursor-pointer">
+    <div className="productCard relative glass bg-red-200 w-72 h-96 rounded-2xl overflow-hidden cursor-pointer">
       <div className="imgWrap absolute -left-16 -top-24 rounded-xl">
         <Image
           src={testImg}
