@@ -21,14 +21,14 @@ const Navbar = () => {
           <li>Contact</li>
         </ul>
       </div>
-      <Link href="/">
+      <Link href="/" passHref>
         <div className="logoWrap hover:animate-pulse absolute -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2">
-          <Logo />
+          <Logo href="/" onClick={() => {}} />
         </div>
       </Link>
       <div className="links flex text-2xl">
         <div className="cart-status mr-4 cursor-pointer">
-          <Link href="cart">
+          <Link href="/cart" passHref>
             <RiShoppingCartLine />
           </Link>
         </div>
