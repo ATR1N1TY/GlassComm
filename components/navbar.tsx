@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { globalContext } from "../context/context";
 import Link from "next/link";
 import { RiShoppingCartLine } from "react-icons/ri";
 import { RiShoppingCartFill } from "react-icons/ri";
@@ -10,8 +11,11 @@ import mainLogo from "../public/LOGO.jpg";
 import Logo from "./logo";
 
 const Navbar = () => {
+  const {
+    globalState: { cart },
+  } = useContext(globalContext);
   return (
-    <header className="navbar fixed glass p-6 flex align-middle justify-between relative w-screen ">
+    <header className="navbar  glass p-6 flex align-middle justify-between relative ">
       <div className="lists">
         <ul className="flex">
           <li>Trending</li>
@@ -26,10 +30,15 @@ const Navbar = () => {
           <Logo href="/" onClick={() => {}} />
         </div>
       </Link>
-      <div className="links flex text-2xl">
+      <div className="links flex  text-2xl">
         <div className="cart-status mr-4 cursor-pointer">
           <Link href="/cart" passHref>
-            <RiShoppingCartLine />
+            <div className="wrapper relative">
+              {!cart.length ? <RiShoppingCartLine /> : <RiShoppingCartFill />}
+              <div className="counter absolute top-3 right-3 bg-green-500 text-black  rounded-full w-4 h-4 flex items-center justify-center font-bold text-sm ">
+                {cart.length}
+              </div>
+            </div>
           </Link>
         </div>
         <div className="exchange flex text-2xl mr-4">
