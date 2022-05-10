@@ -4,11 +4,15 @@ import { faker } from "@faker-js/faker";
 import { globalReducer, filterReducer, currencyReducer } from "./reducers";
 import { productList } from "./data";
 
+interface GlobalContext {}
+
+const initialState: GlobalContext = {};
+
 // კონტექსტი
-export const globalContext = createContext({});
+export const globalContext = createContext<any>(initialState);
 
 // TS ინტერფეისები
-export interface product {
+export interface Product {
   id: string;
   name: string;
   price: string;
@@ -21,7 +25,7 @@ export interface product {
 }
 
 export interface storeInitialState {
-  products: product[];
+  products: Product[];
   cart: [];
   subtotal: number;
 }
@@ -47,18 +51,13 @@ export const GlobalContextProvider = ({ children }: any) => {
   const fetchCurrency = (to: string, from: string) => {
     console.log("from: " + from, "to: " + to);
 
-    var myHeaders = new Headers();
-    myHeaders.append("apikey", "z8buYjkFfCEXpkjz9A3ANbMagFWSxLVo");
-
-    var requestOptions = {
-      method: "GET",
-      redirect: "follow",
-      headers: myHeaders,
-    };
-
     fetch(
       `https://api.apilayer.com/exchangerates_data/convert?to=${to}&from=${from}&amount=1`,
-      requestOptions
+      {
+        headers: {
+          apikey: "z8buYjkFfCEXpkjz9A3ANbMagFWSxLVo",
+        },
+      }
     )
       .then((res) => res.json())
       .then((data) => {
@@ -79,7 +78,7 @@ export const GlobalContextProvider = ({ children }: any) => {
   const filterInitialState: filterState = {
     search_query: "",
     min_price: 1,
-    max_price: 99999999999999999,
+    max_price: 99999999999999,
     by_order: null, //null | "highToLow" | "lowToHigh"
     include_out_of_stock: true,
     include_fast_delivery_only: false,
@@ -115,9 +114,10 @@ export const GlobalContextProvider = ({ children }: any) => {
     console.log(rate);
 
     setProducts(
-      globalState.products.filter((product: product) => {
-        return (product.price = (Number(product.price) * rate).toString());
-      })
+      globalState.products.filter(
+        (product: Product) =>
+          (product.price = (Number(product.price) * rate).toString())
+      )
     );
   }, [currencyState.to]);
 
