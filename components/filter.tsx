@@ -18,6 +18,8 @@ const Filter = () => {
   } = useContext(globalContext);
   // console.log(include_out_of_stock, include_fast_delivery_only);
 
+  // console.log(by_ratings);
+
   return (
     <div className="glass m-4 mt-8 p-4 rounded-full text-pink-50 text-base inline-flex items-center">
       {/* search */}
@@ -130,26 +132,16 @@ const Filter = () => {
             })
           }
         />
-        <RatingComponent
-          productRating={by_ratings}
-          onClick={(idx: number) =>
-            filterDispatch({
-              type: FILTER_ACTIONS.SORT_BY_RATINGS,
-              payload: idx + 1,
-            })
-          }
-        />
+
+        <RatingComponent productRating={by_ratings} dispatch={filterDispatch} />
+        <div
+          className="clear-filter inline hover:cursor-pointer ml-4"
+          onClick={() => filterDispatch({ type: FILTER_ACTIONS.CLEAR_FILTER })}
+        >
+          <FcClearFilters size={30} className="inline" />
+        </div>
       </form>
-      {/* <button
-        onClick={() => {
-          filterDispatch({ type: FILTER_ACTIONS.CLEAR_FILTER });
-        }}
-      >
-        <FcClearFilters
-          size={40}
-          className="inline ml-4 hover:cursor-pointer"
-        />
-      </button> */}
+
       {/* idea: როდესაც მომხმარებელი ქვემოთ ჩამოსქროლავს და ფილტერ კომპონენტი აღარ იქნება ეკრანზე,
       გადმოვიდეს ეს კომპონენტი ეკრანის მარცხნივ და პროდუქტლისტ კომპონენტმა ჩაიჩოჩოს მარჯვნივ, 
       ეს ყველაფერი ანიმაციით,

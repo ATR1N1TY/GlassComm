@@ -4,6 +4,10 @@ export const CART_ACTIONS = {
   CHANGE_QTY: "change_qty",
 };
 
+export const CURRENCY_ACTIONS = {
+  CHANGE_CURRENCY: "change_currency",
+};
+
 export const FILTER_ACTIONS = {
   SEARCH_BY_QUERY: "search_by_query",
   REMOVE_PRICES_BELOW: "remove_prices_below",

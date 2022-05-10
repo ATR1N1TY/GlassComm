@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { globalContext } from "../context/context";
 import Link from "next/link";
 import { RiShoppingCartLine } from "react-icons/ri";
@@ -9,11 +9,14 @@ import { RiMoonClearFill } from "react-icons/ri";
 import { RiUser6Line } from "react-icons/ri";
 import mainLogo from "../public/LOGO.jpg";
 import Logo from "./logo";
+import Exchange from "./exchange";
 
 const Navbar = () => {
   const {
     globalState: { cart },
+    setCurrency,
   } = useContext(globalContext);
+
   return (
     <header className="navbar  glass p-6 flex align-middle justify-between relative ">
       <div className="lists">
@@ -42,7 +45,7 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="exchange flex text-2xl mr-4">
-          <RiExchangeDollarLine />
+          <Exchange />
         </div>
         <div className="exchange flex text-2xl mr-4">
           <RiMoonClearFill />
@@ -53,6 +56,25 @@ const Navbar = () => {
       </div>
     </header>
   );
+};
+
+// ესეიგი, როდესაც მომხმარებელი დააჭერს ვალუტის ღილაკს უნდა ჩამოიშალოს dropdown მენიუ
+// და უნდა ეწეროს ჩამონათვალი სხვადასხვა ქვეყნის ვალუტების
+// როდესაც რომელიმე ვალუტას დააჭერს მომხმარებელი product.price უნდა შეიცვალოს და აგრეთვე currencySign
+
+// მიზანი: product ლისტში price-ის შეცვლა
+// product.map((product) => product.price = product.price * usdTOcurr)
+
+//usdTOcurr = rates.
+
+const currData = {
+  AUD: 1.566015,
+  CAD: 1.560132,
+  CHF: 1.154727,
+  CNY: 7.827874,
+  GBP: 0.882047,
+  JPY: 132.360679,
+  USD: 1.23396,
 };
 
 export default Navbar;

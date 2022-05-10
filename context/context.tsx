@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { createContext, useReducer } from "react";
 import { faker } from "@faker-js/faker";
-import { globalReducer, filterReducer } from "./reducers";
+import { globalReducer, filterReducer, currencyReducer } from "./reducers";
 import { productList } from "./data";
-// faker.seed(99);
 
+// კონტექსტი
 export const globalContext = createContext({});
 
+// TS ინტერფეისები
 export interface product {
   id: string;
   name: string;
@@ -35,66 +36,101 @@ export interface filterState {
   by_ratings: null | number;
 }
 
-// interface produqtsState {
-//   products: product[],
-//   setProducts:
-// }
-
 export const GlobalContextProvider = ({ children }: any) => {
+  //პროდუქტების მასივი
   const [products, setProducts] = useState(productList);
 
-  // const fetchProducts = () => {
-  //   const products = [...Array(20)].map(
-  //     (): product => ({
-  //       id: faker.datatype.uuid(),
-  //       name: faker.commerce.productName(),
-  //       price: faker.commerce.price(),
-  //       images: [...Array(5)].map(() => faker.image.food(500, 500, true)),
-  //       inStock: faker.datatype.number({ min: 0, max: 20 }),
-  //       fastDelivery: faker.datatype.boolean(),
-  //       ratings: faker.datatype.number({ min: 1, max: 5 }),
-  //       description: faker.commerce.productDescription(),
-  //       quantity: null,
-  //     })
-  //   );
-  //   setProducts(products);
-  // };
+  //fetchCurrency ფუნქციიდან წამოსული კურსი
+  const [rate, setRate] = useState(1);
 
-  // useEffect(fetchProducts, []);
+  // ფუნქცია რომელიც იღებს რომელ ვალუტაში გარდაქმნას რომელი ვალუტა
+  const fetchCurrency = (to: string, from: string) => {
+    console.log("from: " + from, "to: " + to);
 
-  // console.log(productse);
+    var myHeaders = new Headers();
+    myHeaders.append("apikey", "z8buYjkFfCEXpkjz9A3ANbMagFWSxLVo");
 
+    var requestOptions = {
+      method: "GET",
+      redirect: "follow",
+      headers: myHeaders,
+    };
+
+    fetch(
+      `https://api.apilayer.com/exchangerates_data/convert?to=${to}&from=${from}&amount=1`,
+      requestOptions
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        const { result } = data;
+        setRate(result);
+      })
+      .catch((error) => console.log("error", error));
+  };
+
+  // გლობალსთეითის პირველი სახე
   const globalInitialState: storeInitialState = {
     products: products,
     cart: [],
     subtotal: 0,
   };
 
+  //ფილტერსთეითის პირველი სახე
   const filterInitialState: filterState = {
     search_query: "",
     min_price: 1,
-    max_price: Math.max(...products.map((p) => Number(p.price))) + 1,
+    max_price: 99999999999999999,
     by_order: null, //null | "highToLow" | "lowToHigh"
     include_out_of_stock: true,
     include_fast_delivery_only: false,
     by_ratings: 3,
   };
 
+  const currencytInitialState = {
+    to: "USD",
+    from: "USD",
+    // rate: 1,
+  };
+
+  // გლობალ სთეითის რედიუსერ ჰუკი
   const [globalState, globalDispatch] = useReducer(
     globalReducer,
     globalInitialState
   );
 
+  //ფილტრესთეითის რედიუსერ ჰუკი
   const [filterState, filterDispatch] = useReducer(
     filterReducer,
     filterInitialState
   );
 
-  // console.log(filterState);
+  const [currencyState, currencyDispatch] = useReducer(
+    currencyReducer,
+    currencytInitialState
+  );
+
+  //ჰუკი რომელიც მაშინ გაეშვება როდესაც შეიცვლება
+  useEffect(() => {
+    fetchCurrency(currencyState.to, currencyState.from);
+    console.log(rate);
+
+    setProducts(
+      globalState.products.filter((product: product) => {
+        return (product.price = (Number(product.price) * rate).toString());
+      })
+    );
+  }, [currencyState.to]);
 
   return (
     <globalContext.Provider
-      value={{ globalState, globalDispatch, filterState, filterDispatch }}
+      value={{
+        globalState,
+        globalDispatch,
+        filterState,
+        filterDispatch,
+        currencyDispatch,
+        rate,
+      }}
     >
       {children}
     </globalContext.Provider>

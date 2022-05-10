@@ -1,3 +1,20 @@
+// const fetchProducts = () => {
+//   const products = [...Array(20)].map(
+//     (): product => ({
+//       id: faker.datatype.uuid(),
+//       name: faker.commerce.productName(),
+//       price: faker.commerce.price(),
+//       images: [...Array(5)].map(() => faker.image.food(500, 500, true)),
+//       inStock: faker.datatype.number({ min: 0, max: 20 }),
+//       fastDelivery: faker.datatype.boolean(),
+//       ratings: faker.datatype.number({ min: 1, max: 5 }),
+//       description: faker.commerce.productDescription(),
+//       quantity: null,
+//     })
+//   );
+//   setProducts(products);
+// };
+
 export const productList = [
   {
     id: "d87b3031-966f-4ba2-bfd6-d5a70dfa50fb",
