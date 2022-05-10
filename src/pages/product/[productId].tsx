@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { globalContext, product } from "../../context/context";
+import { globalContext, Product } from "../../context/context";
 import Navbar from "../../components/navbar";
 import Details from "../../components/product/details";
 import Gallery from "../../components/product/gallery";

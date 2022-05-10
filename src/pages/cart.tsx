@@ -5,7 +5,7 @@ import Logo from "../components/logo";
 import Navbar from "../components/navbar";
 import Image from "next/image";
 import atrinityLogo from "../public/LOGO.jpg";
-import { product } from "../context/context";
+import { Product } from "../context/context";
 import { RiShoppingCartLine } from "react-icons/ri";
 
 const Cart = () => {
@@ -42,7 +42,7 @@ const Cart = () => {
             SCROLL DOWN TO SEE SUBTOTAL 👇
           </div> */}
           <div className="productContainer overflow-auto p-8 mt-4 w-full flex flex-col items-center justify-center">
-            {cart.map((product: product) => (
+            {cart.map((product: Product) => (
               <CartProductCard
                 key={product.id}
                 product={product}

@@ -33,7 +33,7 @@ const Exchange = () => {
             onClick={(e) => {
               currencyDispatch({
                 type: CURRENCY_ACTIONS.CHANGE_CURRENCY,
-                payload: e.target.innerText.split(" ")[0],
+                payload: e.currentTarget.innerText.split(" ")[0],
               });
             }}
           >

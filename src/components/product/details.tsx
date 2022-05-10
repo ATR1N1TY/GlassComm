@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { globalContext, product } from "../../context/context";
+import { globalContext, Product } from "../../context/context";
 import Quantity from "../quantity";
 import { RiShoppingCartFill, RiShoppingCartLine } from "react-icons/ri";
 import RatingComponent from "../ratingComponent";
@@ -32,7 +32,7 @@ const Details = ({ product, cart, dispatch }: any) => {
 
       <footer className="options flex">
         <Quantity />
-        {!cart.some((prod: product) => prod?.id == product.id) ? (
+        {!cart.some((prod: Product) => prod?.id == product.id) ? (
           <button
             className="btn mx-8 px-16 rounded-xl text-amber-50 font-bold bg-orange-500 drop-shadow-md"
             onClick={() =>

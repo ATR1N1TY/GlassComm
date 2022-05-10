@@ -1,6 +1,6 @@
 import cart from "../pages/cart";
 import { CART_ACTIONS, FILTER_ACTIONS, CURRENCY_ACTIONS } from "./actions";
-import { storeInitialState, product } from "./context";
+import { storeInitialState, Product } from "./context";
 
 // interface action {
 //   type: string;
@@ -24,14 +24,14 @@ export const globalReducer = (state: any, action: any) => {
       return {
         ...state,
         cart: state.cart.filter(
-          (product: product) => product.id !== action.payload.id
+          (product: Product) => product.id !== action.payload.id
         ),
       };
 
     case CART_ACTIONS.CHANGE_QTY:
       return {
         ...state,
-        cart: state.cart.filter((prod: product) =>
+        cart: state.cart.filter((prod: Product) =>
           action.payload.id === prod.id
             ? (prod.quantity = action.payload.quantity)
             : prod.quantity

@@ -1,8 +1,8 @@
 import React from "react";
 
 interface props {
-  onClick(): void;
-  href: string;
+  onClick?: () => void;
+  href?: string;
 }
 
 const Logo = React.forwardRef(({ onClick, href }: props, ref: any) => {

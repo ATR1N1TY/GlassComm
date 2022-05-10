@@ -1,16 +1,14 @@
 import React, { useState, useContext, useEffect } from "react";
 import Image from "next/image";
-import { globalContext, product } from "../../context/context";
+import { globalContext, Product } from "../../context/context";
 import image from "../../public/imagesForTesting/image.jpg";
 import image1 from "../../public/imagesForTesting/image1.jpg";
 import image2 from "../../public/imagesForTesting/image2.jpg";
 import image3 from "../../public/imagesForTesting/image3.jpg";
 
-interface pro {
-  product: product;
-}
+const Gallery = (props: { product: Product }) => {
+  const { product } = props;
 
-const Gallery = ({ product }: pro) => {
   const [images, setImages] = useState([...Array(5)]);
   const [selectedImg, setSelectedImg] = useState("");
 

@@ -5,7 +5,7 @@ import Image from "next/image";
 import { RiShoppingCartLine } from "react-icons/ri";
 import { MdOutlineRemove } from "react-icons/md";
 import { CART_ACTIONS } from "../context/actions";
-import { product } from "../context/context";
+import { Product } from "../context/context";
 import RatingComponent from "./ratingComponent";
 import { AiTwotoneThunderbolt } from "react-icons/ai";
 import { FiPackage } from "react-icons/fi";
@@ -54,7 +54,7 @@ const ProductCard = ({ product, cart, dispatch }: any) => {
       <div className="cartOptions absolute text-3xl font-bold bottom-28   right-3 bg-white w-20 h-20 rounded-full flex justify-center items-center transition-colors hover:bg-green-500">
         {/* <RiShoppingCartLine /> */}
 
-        {cart.some((prod: product) => prod.id === product.id) ? (
+        {cart.some((prod: Product) => prod.id === product.id) ? (
           <MdOutlineRemove
             onClick={() =>
               dispatch({ type: CART_ACTIONS.REMOVE_PRODUCT, payload: product })
