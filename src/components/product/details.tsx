@@ -31,7 +31,7 @@ const Details = ({ product, cart, dispatch }: any) => {
       </div>
 
       <footer className="options flex">
-        <Quantity />
+        {/* <Quantity  /> */}
         {!cart.some((prod: Product) => prod?.id == product.id) ? (
           <button
             className="btn mx-8 px-16 rounded-xl text-amber-50 font-bold bg-orange-500 drop-shadow-md"

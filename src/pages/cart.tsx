@@ -4,7 +4,7 @@ import CartProductCard from "../components/cartProductCard";
 import Logo from "../components/logo";
 import Navbar from "../components/navbar";
 import Image from "next/image";
-import atrinityLogo from "../public/LOGO.jpg";
+import atrinityLogo from "../../public/LOGO.jpg";
 import { Product } from "../context/context";
 import { RiShoppingCartLine } from "react-icons/ri";
 

@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import image from "../public/imagesForTesting/image.jpg";
+import image from "../../public/imagesForTesting/image.jpg";
 import Quantity from "./quantity";
 import { RiCloseFill } from "react-icons/ri";
 import { Product } from "../context/context";

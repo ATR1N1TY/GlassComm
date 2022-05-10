@@ -12,7 +12,7 @@ const ProductPage: NextPage = () => {
   // console.log("PRODUCT PAGE STARTED----------------------------->");
 
   // const [identifier, setIdentifier] = useState("");
-  const [prod, setProd] = useState(false);
+  const [prod, setProd] = useState<Product>();
   const router = useRouter();
   // console.log(router);
   const identifier = router.query.productId;
@@ -35,16 +35,16 @@ const ProductPage: NextPage = () => {
     // console.log(products);
 
     // console.log("SEARCHING PRODUCT....");
-    const pr = products.find((product: product) => product.id === identifier);
+    const pr = products.find((product: Product) => product.id === identifier);
     // console.log(`PRODUCT FOUND: ${pr}`);
 
     //setProd doesn't set product
     setProd(pr);
-
-    // console.log(`PROD SET TO PRODUCT, NOW PROD IS: ${prod}`);
-
-    // console.log("USEEFFECT END++++++++++++++++++++++++++++++++++++");
   }, [router.isReady, identifier, prod, products]);
+
+  if (!prod) {
+    return <div>Loading...</div>;
+  }
 
   // console.log("PRODUCT PAGE RENDERED------------------------------>");
   return (

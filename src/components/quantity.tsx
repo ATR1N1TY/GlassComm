@@ -5,7 +5,14 @@ import { CART_ACTIONS } from "../context/actions";
 import { globalContext } from "../context/context";
 import { productList } from "../context/data";
 
-const Quantity = ({ qty, identifier, maxQty }: any) => {
+interface QuantityProps {
+  qty: number;
+  identifier: string;
+  maxQty: number;
+}
+
+const Quantity = (props: QuantityProps) => {
+  const { qty, identifier, maxQty } = props;
   const [quantIty, setQuantity] = useState(1);
   const { globalDispatch } = useContext(globalContext);
   // console.log(identifier);
