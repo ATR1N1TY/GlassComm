@@ -1,40 +1,45 @@
-import React from "react";
+import React, { useContext } from "react";
 import Image from "next/image";
 import image from "../../public/imagesForTesting/image.jpg";
 import Quantity from "./quantity";
 import { RiCloseFill } from "react-icons/ri";
-import { Product } from "../context/context";
+import { Product } from "../types/types";
 import { CART_ACTIONS } from "../context/actions";
 import Link from "next/link";
+import { globalContext } from "../context/context";
 
 const CartProductCard = ({ product, dispatch }: any) => {
-  // console.log(product.quantity);
+  const {
+    currencyData: { to },
+  } = useContext(globalContext);
 
   return (
-    <section className="cartProductCard glass rounded-xl flex items-center justify-between border-4 p-4 my-2 w-4/5 ">
-      <div className="img">
+    <section className="cartProductCard glass rounded-xl flex items-center justify-between border-4 p-4 my-2 md:w-4/5 dark:bg-stone-800/50 dark:text-slate-300">
+      <div className="img w-16 h-16 md:w-24 md:h-24">
         <img
           src={product.images[0]}
           alt={product.name}
-          className=" w-24 h-24 rounded-xl "
+          className="w-full h-full rounded-md md:rounded-xl "
         />
       </div>
       <div className="info">
         <Link href={`/product/${product.id}`} passHref>
-          <p className="title font-bold text-xl hover:cursor-pointer">
+          <p className="title font-bold mx-2 lg:mx-0 text-sm md:text-xl hover:cursor-pointer">
             {product.name}
           </p>
         </Link>
-        <p className="id">#{product.id}</p>
+        <p className="id hidden md:block">#{product.id}</p>
       </div>
-      <p className="price font-bold">${product.price}</p>
+      <p className="price font-bold hidden md:block">
+        {to} {product.price}
+      </p>
       <Quantity
         qty={product.quantity}
         maxQty={product.inStock}
         identifier={product.id}
       />
-      <div className="totalPrice font-bold">
-        ${product.price * product.quantity}
+      <div className="totalPrice font-bold ml-4 lg:ml-0">
+        {to} {product.price * product.quantity}
       </div>
       <button
         className="removeItem text-3xl"
