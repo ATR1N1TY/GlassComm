@@ -3,7 +3,7 @@ import Image from "next/image";
 import image from "../../public/imagesForTesting/image.jpg";
 import Quantity from "./quantity";
 import { RiCloseFill } from "react-icons/ri";
-import { Product } from "../types/types";
+// import { Product } from "../types/types";
 import { CART_ACTIONS } from "../context/actions";
 import Link from "next/link";
 import { globalContext } from "../context/context";
