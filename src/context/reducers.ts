@@ -1,7 +1,6 @@
 import cart from "../pages/cart";
 import { CART_ACTIONS, FILTER_ACTIONS, CURRENCY_ACTIONS } from "./actions";
-import { storeInitialState, Product } from "./context";
-
+import { Product } from "../types/types";
 // interface action {
 //   type: string;
 //   payload: string | number;
