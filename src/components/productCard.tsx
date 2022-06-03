@@ -1,79 +1,82 @@
-import React, { useEffect } from "react";
-import logo from "../public/LOGO.jpg";
+import React, { useContext, useEffect } from "react";
+// import logo from "../public/LOGO.jpg";
 import testImg from "../public/testImage.jpg";
 import Image from "next/image";
 import { RiShoppingCartLine } from "react-icons/ri";
 import { MdOutlineRemove } from "react-icons/md";
 import { CART_ACTIONS } from "../context/actions";
-import { Product } from "../context/context";
+import { Product } from "../types/types";
 import RatingComponent from "./ratingComponent";
-import { AiTwotoneThunderbolt } from "react-icons/ai";
 import { FiPackage } from "react-icons/fi";
 import Link from "next/link";
+import logo from "../../public/LOGO.jpg";
+import { globalContext } from "../context/context";
 
 const ProductCard = ({ product, cart, dispatch }: any) => {
-  // console.log(product);
+  const imageLoader = () => {
+    return product.images[0];
+  };
+
+  const { currencyData } = useContext(globalContext);
 
   return (
-    <div className="productCard relative glass bg-red-200 w-72 h-96 rounded-2xl overflow-hidden cursor-pointer">
-      <div className="imgWrap absolute -left-16 -top-24 rounded-xl">
-        {/* <Image
-          src={product.images[0].toString()}
-          className=" rounded-full"
-          width={"350px"}
-          height={"350px"}
-        /> */}
-        <Link href={`/product/${product.id}`} passHref>
-          <img
-            src={product.images[0]}
+    <article className="productCard relative glass  w-72 h-96  rounded-2xl overflow-hidden dark:bg-stone-800/50 dark:text-slate-300 dark:hover:bg-stone-700/50 hover:bg-purple-100/25">
+      <Link href={`/product/${product.id}`} passHref>
+        <div className="imgWrap absolute -left-16 -top-24 rounded-xl cursor-pointer">
+          <Image
+            loader={imageLoader}
+            src={logo}
+            className=" rounded-full"
+            width={"350px"}
+            height={"350px"}
             alt={product.name}
-            className=" w-80 h-80 rounded-full"
           />
+        </div>
+      </Link>
+      <footer className="productDetails absolute bottom-0 w-full p-4 cursor-pointer">
+        <Link href={`/product/${product.id}`} passHref>
+          <>
+            <section className="productName m-2 font-bold text-xl">
+              {product.name}
+            </section>
+            <section className="productPrice mx-2 font-bold">
+              {product.price} {currencyData.to}
+            </section>
+            <section className="options flex justify-between">
+              <RatingComponent productRating={product.ratings} />
+              {product.fastDelivery ? (
+                <div className="fastDeliveryLogo flex">
+                  <FiPackage className=" align-baseline" />
+                </div>
+              ) : (
+                ""
+              )}
+            </section>
+          </>
         </Link>
-      </div>
-      <div className="details absolute bottom-0 w-full p-4">
-        <section className="productName m-2 font-bold text-xl">
-          {product.name}
-        </section>
-        <section className="productPrice mx-2 font-bold">
-          ${product.price}
-        </section>
-        <section className="options flex justify-between">
-          <RatingComponent productRating={product.ratings} />
-          {product.fastDelivery ? (
-            <div className="fastDeliveryLogo flex">
-              {/* <AiTwotoneThunderbolt /> */}
-              <FiPackage className=" align-baseline" />
-              {/* <p>Fast Delivery</p> */}
-            </div>
-          ) : (
-            ""
-          )}
-        </section>
-      </div>
-      <div className="cartOptions absolute text-3xl font-bold bottom-28   right-3 bg-white w-20 h-20 rounded-full flex justify-center items-center transition-colors hover:bg-green-500">
-        {/* <RiShoppingCartLine /> */}
+      </footer>
 
-        {cart.some((prod: Product) => prod.id === product.id) ? (
-          <MdOutlineRemove
-            onClick={() =>
-              dispatch({ type: CART_ACTIONS.REMOVE_PRODUCT, payload: product })
-            }
-          />
-        ) : (
-          <RiShoppingCartLine
-            onClick={() =>
-              dispatch({ type: CART_ACTIONS.ADD_PRODUCT, payload: product })
-            }
-          />
-        )}
-        {/* <MdOutlineRemove /> */}
-      </div>
-    </div>
+      {cart.some((prod: Product) => prod.id === product.id) ? (
+        <div
+          className=" z-10 cartOptions absolute text-3xl font-bold bottom-28   right-3 bg-white w-20 h-20 rounded-full flex justify-center items-center transition-colors dark:bg-neutral-600 dark:text-slate-200 hover:bg-red-600 dark:hover:bg-red-600 cursor-pointer "
+          onClick={() =>
+            dispatch({ type: CART_ACTIONS.REMOVE_PRODUCT, payload: product })
+          }
+        >
+          <MdOutlineRemove />
+        </div>
+      ) : (
+        <div
+          className=" z-10 cartOptions absolute text-3xl font-bold bottom-28   right-3 bg-white w-20 h-20  rounded-full flex justify-center items-center transition-colors dark:bg-neutral-600 dark:text-slate-200 hover:bg-green-500 dark:hover:bg-green-500 cursor-pointer"
+          onClick={() =>
+            dispatch({ type: CART_ACTIONS.ADD_PRODUCT, payload: product })
+          }
+        >
+          <RiShoppingCartLine />
+        </div>
+      )}
+    </article>
   );
 };
-
-// თუ მოცემული პროდუქტი ქარტში არ არის დააბრუნე დამატების ღილაკი
-// თუ ქარტში ეს პროდუქტი არის დააბრუნე მოშორების ღილაკი
 
 export default ProductCard;
