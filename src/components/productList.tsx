@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import ProductCard from "./productCard";
-import { globalContext, Product } from "../context/context";
+import { globalContext } from "../context/context";
+import { Product } from "../types/types";
 
 const ProductList = () => {
   const {
@@ -17,16 +18,8 @@ const ProductList = () => {
     },
   } = useContext(globalContext);
 
-  // console.log(rate);
-
-  console.log(products);
-
   const filterProducts = () => {
     let filteredProducts = products;
-
-    // როგორ დავაბრუნოთ აიტემები ქვიერის მიხედვით
-    // პროდუქტის ლისტს უნდა გადავატაროთ filter ფუნქცია
-    // და დავაბრუნოთ ისეთი
 
     if (search_query) {
       filteredProducts = filteredProducts.filter((product: Product) =>
@@ -70,23 +63,8 @@ const ProductList = () => {
     return filteredProducts;
   };
 
-  //ახლა მე მინდა filteredProducts მასივის თითოეულ ობჯექტში არსებული ფასი გავამრავლო rate-ზე და დავაბრუნო ეს
-
-  // useEffect(() => {
-  //   const prods = filterProducts();
-  //   console.log(prods);
-  // }, [
-  //   search_query,
-  //   min_price,
-  //   max_price,
-  //   by_order,
-  //   include_out_of_stock,
-  //   include_fast_delivery_only,
-  //   by_ratings,
-  // ]);
-
   return (
-    <div className="productList inline-grid gap-8 grid-cols-5 grid-rows-4 min-h-screen ">
+    <div className="productList inline-grid gap-8 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-2 md:grid-cols-1 grid-rows-auto min-h-screen ">
       {/* <ProductCard /> */}
       {filterProducts().map((product: any) => {
         return (

@@ -16,7 +16,7 @@ const RatingComponent = ({ productRating, dispatch }: any) => {
   // }, [dispatch]);
 
   return (
-    <div className="rating inline ml-2">
+    <div className="rating inline xl:ml-2">
       {[...Array(5)].map((_, idx) => {
         // console.log(idx);
 

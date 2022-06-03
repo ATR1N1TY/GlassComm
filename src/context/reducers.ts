@@ -87,24 +87,3 @@ export const filterReducer = (state: any, action: any) => {
       return state;
   }
 };
-
-//რაც შეეხება rate-ს
-// rate შეგვიძლია გავაკეთოთ როგორც useState ჰუკი და მისი setRate() ფუნქცია გამოვიყენოთ ფეჩ ფუნქციაში
-// შემდეგ კი დავააფდეითოთ product მასივის ფასები რაიმე მასივ მეთოდის გამოყენებით
-// ორი ვარიანტია:
-//1. შევცვალოთ product მასივის ფასები context კომპონენტში
-//2. ან შევცვალოთ product მასივის ფასები productList კომპონენტში
-
-// თუ productის ფასებს productListში დავააფდეითებთ მაშინ ამ კომპონენტს უნდა გადავცეთ დამატებით rate ცვლადი
-// და თუ ასე ვიზამთ ნებისმიერი პროდუქტი რომელიც კარტში დაემატება ექნება განახლებული ფასი
-// მაგრამ როდესაც მე შევცვლი ვალუტას, ქარტში წინა ვალუტის ფასები იქნება, ასე რომ ქარტშიც უნდა შევცვალო
-
-export const currencyReducer = (state: any, action: any) => {
-  switch (action.type) {
-    case CURRENCY_ACTIONS.CHANGE_CURRENCY:
-      return { to: action.payload, from: state.to };
-
-    default:
-      return state;
-  }
-};

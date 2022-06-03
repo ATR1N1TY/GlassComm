@@ -1,48 +1,39 @@
 import React, { useState, useContext, useEffect } from "react";
-import Image from "next/image";
+// import Image from "next/image";
 import { globalContext, Product } from "../../context/context";
+import logo from "../../../public/LOGO.jpg";
 import image from "../../public/imagesForTesting/image.jpg";
 import image1 from "../../public/imagesForTesting/image1.jpg";
 import image2 from "../../public/imagesForTesting/image2.jpg";
 import image3 from "../../public/imagesForTesting/image3.jpg";
+import Image from "next/image";
 
-const Gallery = (props: { product: Product }) => {
-  const { product } = props;
+const Gallery = (props: { productImages: string[] }) => {
+  const { productImages } = props;
 
   const [images, setImages] = useState([...Array(5)]);
   const [selectedImg, setSelectedImg] = useState("");
 
+  const loadImage = (image: string): string => {
+    return image;
+  };
+
   useEffect(() => {
-    if (!product) return;
-    setImages(product.images);
-  }, [product]);
+    if (!images) return;
 
-  console.log(images[0]);
-  // const [ident, setIdent] = useState(identifier);
+    setImages(productImages);
+    // console.log(images);
+  }, [images, productImages]);
 
-  // const getProduct = () => {
-  //   const product = products.filter((product: product) => {
-  //     // console.log(product.id, ident);
-
-  //     product.id === ident;
-  //   });
-  //   console.log(product);
-  //   return product;
-  // };
-
-  // useEffect(() => {
-  //   console.log(getProduct());
-  // }, []);
-  // console.log(product);
-
-  // console.log(product.name);
+  // console.log(images);
 
   return (
-    <section className="gallery mt-16  mr-24 w-1/3">
+    <section className="gallery xl:mt-16  lg:mr-24 lg:w-1/3 m-4">
       <div className="currentImage flex justify-center">
         {/* <Image src={image} className="GenImage rounded-2xl" alt="rame" /> */}
-        <img
-          src={selectedImg ? selectedImg : images[0]}
+        <Image
+          src={logo}
+          loader={() => loadImage(selectedImg ? selectedImg : images[0])}
           alt="1"
           className="GenImage rounded-2xl"
         />
@@ -50,13 +41,21 @@ const Gallery = (props: { product: Product }) => {
       </div>
       <div className="options flex items-center justify-between mt-8 gap-3">
         {images.map((image, idx) => (
-          <img
-            src={image}
-            alt=""
+          <Image
+            src={logo}
+            loader={() => loadImage(image)}
+            alt="r"
             className=" h-32 w-32 rounded-xl hover:cursor-pointer"
             key={idx}
             onClick={() => setSelectedImg(image)}
           />
+          // <img
+          //   src={image}
+          //   alt={image}
+          //   className=" h-32 w-32 rounded-xl hover:cursor-pointer"
+          //   key={idx}
+          //   onClick={() => setSelectedImg(image)}
+          // />
         ))}
       </div>
     </section>
