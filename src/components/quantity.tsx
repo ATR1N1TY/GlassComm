@@ -13,28 +13,26 @@ interface QuantityProps {
 
 const Quantity = (props: QuantityProps) => {
   const { qty, identifier, maxQty } = props;
-  const [quantIty, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(1);
   const { globalDispatch } = useContext(globalContext);
-  // console.log(identifier);
-  console.log("qty: " + qty);
-  console.log(maxQty);
 
   const increment = () =>
-    setQuantity(quantIty <= maxQty ? quantIty + 1 : quantIty);
-  const decrement = () => setQuantity(quantIty <= 1 ? quantIty : quantIty - 1);
+    setQuantity((quantity) => (quantity <= maxQty ? quantity + 1 : quantity));
+  const decrement = () =>
+    setQuantity((quantity) => (quantity <= 1 ? quantity : quantity - 1));
 
   useEffect(() => {
     globalDispatch({
       type: CART_ACTIONS.CHANGE_QTY,
-      payload: { id: identifier, quantity: quantIty },
+      payload: { id: identifier, quantity: quantity },
     });
-  }, [qty, quantIty]);
+  }, [qty, quantity]);
 
   return (
-    <div className="inputQuantity flex justify-between items-center w-32 p-3 bg-slate-100 rounded-xl">
+    <div className="inputQuantity flex justify-between items-center min-w-24 lg:w-32 p-3 bg-slate-100 text-black rounded-xl">
       {qty < 2 ? (
         <button
-          className="decrement font-bold text-xl text-orange-200"
+          className="decrement font-bold md:text-xl text-orange-200"
           onClick={() => decrement()}
           disabled
         >
@@ -42,23 +40,23 @@ const Quantity = (props: QuantityProps) => {
         </button>
       ) : (
         <button
-          className="decrement font-bold text-xl text-orange-500"
+          className="decrement font-bold md:text-xl text-orange-500"
           onClick={() => decrement()}
         >
           <FaMinus />
         </button>
       )}
-      <div className="screen font-bold">{qty}</div>
+      <div className="screen font-bold mx-1">{qty}</div>
       {!(qty === maxQty) ? (
         <button
-          className="increment font-bold text-xl text-orange-500"
+          className="increment font-bold md:text-xl text-orange-500"
           onClick={() => increment()}
         >
           <FaPlus />
         </button>
       ) : (
         <button
-          className="increment font-bold text-xl text-orange-200"
+          className="increment font-bold md:text-xl text-orange-200"
           onClick={() => increment()}
           disabled
         >
@@ -68,7 +66,5 @@ const Quantity = (props: QuantityProps) => {
     </div>
   );
 };
-
-//  ესეიგი, ამ კომპონენტმა მინდა შეცვალოს იმ პროდუქტის რაოდენობა რომლის აიდი
 
 export default Quantity;
