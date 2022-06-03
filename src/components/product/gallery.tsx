@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 // import Image from "next/image";
-import { globalContext, Product } from "../../context/context";
+// import { globalContext, Product } from "../../context/context";
 import logo from "../../../public/LOGO.jpg";
 import image from "../../public/imagesForTesting/image.jpg";
 import image1 from "../../public/imagesForTesting/image1.jpg";
