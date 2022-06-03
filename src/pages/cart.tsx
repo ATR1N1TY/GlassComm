@@ -2,46 +2,45 @@ import React, { useContext, useEffect, useState } from "react";
 import { globalContext } from "../context/context";
 import CartProductCard from "../components/cartProductCard";
 import Logo from "../components/logo";
-import Navbar from "../components/navbar";
+import Navbar from "../components/navbar/navbar";
 import Image from "next/image";
 import atrinityLogo from "../../public/LOGO.jpg";
-import { Product } from "../context/context";
+import { Product } from "../types/types";
 import { RiShoppingCartLine } from "react-icons/ri";
 
 const Cart = () => {
-  const [totalPrice, setTotalPrice] = useState(0);
+  const [totalPrice, setTotalPrice] = useState<number>(0);
 
   const {
     globalState: { cart },
     globalDispatch,
+    darkTheme,
+    currencyData,
   } = useContext(globalContext);
 
   useEffect(() => {
-    setTotalPrice(
-      cart.reduce(
-        (acc: number, curr: any) => acc + curr.price * curr.quantity,
-        0
-      )
-    );
-  }, [cart]);
+    // console.log(totalPrice);
 
-  //idea:
-  // დავუარო კარტის ლისტს reduce ფუნქციით, და აკუმულატორში მოვათავსო cart.reduce(()) acc += p.price * p.quantity
+    setTotalPrice(
+      (totalPrice) =>
+        (totalPrice = cart.reduce(
+          (acc: number, curr: any) => acc + curr.price * curr.quantity,
+          0
+        ))
+    );
+  }, [cart, currencyData]);
 
   return (
-    <div className="cartPage bg-gradient-to-tr  from-red-300 to-red-700">
+    <div className="cartPage bg-gradient-to-tr  from-red-300 to-red-700 dark:from-zinc-900 dark:to-slate-900">
       <Navbar />
       {!cart.length ? (
-        <div className="infod h-screen flex justify-center items-center font-bold text-9xl">
+        <main className="infod h-screen flex justify-center items-center font-bold text-5xl  md:text-9xl dark:text-slate-200">
           Your <RiShoppingCartLine className="mx-4" /> is MT!{" "}
           <span className=" text-xs align-bottom  relative">(Empty)</span>
-        </div>
+        </main>
       ) : (
-        <section className="cartProductList min-h-[100vh]">
-          {/* <div className="information w-screen flex justify-center items-center text-bold text-4xl m-8">
-            SCROLL DOWN TO SEE SUBTOTAL 👇
-          </div> */}
-          <div className="productContainer overflow-auto p-8 mt-4 w-full flex flex-col items-center justify-center">
+        <main className="cartProductList min-h-[100vh]">
+          <div className="productContainer overflow-auto p-2 lg:p-8 mt-4 w-full flex flex-col items-center justify-center">
             {cart.map((product: Product) => (
               <CartProductCard
                 key={product.id}
@@ -50,8 +49,12 @@ const Cart = () => {
               />
             ))}
           </div>
-          <footer className="checkout rounded-3xl checkoutBg text-yellow-900 p-8 m-4 h-96 flex items-center justify-around">
-            <div className="credit hover:animate-pulse font-bold mx-4 text-3xl relative">
+          <footer
+            className={`checkout rounded-3xl ${
+              darkTheme ? "checkoutBgDark" : "checkoutBg"
+            } text-yellow-900 dark:text-slate-200 p-8 lg:m-4 lg:h-96 flex items-center justify-around flex-col md:flex-row`}
+          >
+            <div className="credit hover:animate-pulse font-bold my-8 lg:mx-4 text-xl md:text-3xl relative">
               <Logo />
               <p>
                 Made with 💖 By{" "}
@@ -67,9 +70,10 @@ const Cart = () => {
                 />
               </div>
             </div>
-            <div className="total border-4 border-orange-900 rounded-lg p-4 w-1/4">
+            <div className="total border-4 border-orange-900 dark:border-pink-100 rounded-lg p-4">
               <p className="tot font-bold text-2xl mb-4">
-                SUBTOTAL ${totalPrice} - ({cart.length}) Unique items
+                SUBTOTAL {currencyData.to} {totalPrice} - ({cart.length}) Unique
+                items
               </p>
               <form action="check ">
                 <input type="checkbox" name="box" />
@@ -90,7 +94,7 @@ const Cart = () => {
               </button>
             </div>
           </footer>
-        </section>
+        </main>
       )}
     </div>
   );
