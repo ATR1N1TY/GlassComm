@@ -16,7 +16,7 @@ export const globalReducer = (state: any, action: any) => {
     case CART_ACTIONS.ADD_PRODUCT:
       return {
         ...state,
-        cart: [...state.cart, { ...action.payload }],
+        cart: [...state.cart, { ...action.payload }], 
       };
 
     case CART_ACTIONS.REMOVE_PRODUCT:
