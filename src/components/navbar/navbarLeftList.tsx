@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const NavbarLeftList = (props: { useForNavbar: boolean }) => {
   const { useForNavbar } = props;
-  const { setShowMenu, switchMenuVisibility } = useContext(globalContext);
+  const { switchMenuVisibility } = useContext(globalContext);
 
   return (
     <nav
