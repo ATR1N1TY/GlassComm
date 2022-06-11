@@ -9,7 +9,7 @@ import { Product } from "../types/types";
 import { RiShoppingCartLine } from "react-icons/ri";
 
 const Cart = () => {
-  const [totalPrice, setTotalPrice] = useState<number>(0);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const {
     globalState: { cart },

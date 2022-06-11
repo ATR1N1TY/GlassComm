@@ -8,13 +8,7 @@ import NavbarRightList from "./navbarRightList";
 import HamburgerMenuLogo from "../hamburgerMenu/hamburgerMenuLogo";
 
 const Navbar = () => {
-  const {
-    globalState: { cart },
-    setFilterOn,
-    filterOn,
-    showMenu,
-    setShowMenu,
-  } = useContext(globalContext);
+  const { setFilterOn } = useContext(globalContext);
 
   return (
     <header className="navbar glass p-6 flex align-middle justify-between relative  dark:bg-gray-900/25  dark:text-stone-300 ">
