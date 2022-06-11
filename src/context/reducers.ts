@@ -19,6 +19,8 @@ export const globalReducer = (state: any, action: any) => {
       };
 
     case CART_ACTIONS.REMOVE_PRODUCT:
+      console.log("PRODUCT REMOVED");
+
       return {
         ...state,
         cart: state.cart.filter(
@@ -27,6 +29,7 @@ export const globalReducer = (state: any, action: any) => {
       };
 
     case CART_ACTIONS.CHANGE_QTY:
+      console.log("QTY CHANGED");
       return {
         ...state,
         cart: state.cart.filter((prod: Product) =>

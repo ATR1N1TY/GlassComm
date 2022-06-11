@@ -33,11 +33,11 @@ const CartProductCard = ({ product, dispatch }: any) => {
       <p className="price font-bold hidden md:block">
         {to} {product.price}
       </p>
-      <Quantity
+      {/* <Quantity
         qty={product.quantity}
         maxQty={product.inStock}
         identifier={product.id}
-      />
+      /> */}
       <div className="totalPrice font-bold ml-4 lg:ml-0">
         {to} {product.price * product.quantity}
       </div>

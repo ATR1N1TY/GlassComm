@@ -20,7 +20,6 @@ const Cart = () => {
 
   useEffect(() => {
     // console.log(totalPrice);
-
     setTotalPrice(
       (totalPrice) =>
         (totalPrice = cart.reduce(

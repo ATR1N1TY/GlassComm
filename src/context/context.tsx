@@ -36,6 +36,8 @@ export const GlobalContextProvider = ({ children }: any) => {
     filterInitialState
   );
 
+  console.log(globalState.cart);
+
   useEffect(() => {
     if (!Object.keys(rates).length) return;
 
