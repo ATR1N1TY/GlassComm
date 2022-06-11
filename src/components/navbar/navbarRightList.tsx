@@ -17,6 +17,7 @@ const NavbarRightList = (props: { useForNavbar: boolean }) => {
     globalState: { cart },
     darkTheme,
     setDarkTheme,
+    switchMenuVisibility,
   } = useContext(globalContext);
 
   return (
@@ -27,7 +28,14 @@ const NavbarRightList = (props: { useForNavbar: boolean }) => {
           : "text-6xl flex dark:text-slate-50 justify-evenly mt-10 "
       } sm:flex`}
     >
-      <span className="cart-status mr-4 cursor-pointer hover:text-white">
+      <span
+        className="cart-status mr-4 cursor-pointer hover:text-white"
+        onClick={() => {
+          if (!useForNavbar) {
+            switchMenuVisibility();
+          }
+        }}
+      >
         <Link href="/cart" passHref>
           <div className="wrapper relative">
             {!cart.length ? <RiShoppingCartLine /> : <RiShoppingCartFill />}
@@ -55,7 +63,14 @@ const NavbarRightList = (props: { useForNavbar: boolean }) => {
         {!darkTheme ? <RiMoonClearFill /> : <BsSun />}
       </span>
 
-      <span className="signIn-status hover:text-white">
+      <span
+        className="signIn-status hover:text-white"
+        onClick={() => {
+          if (!useForNavbar) {
+            switchMenuVisibility();
+          }
+        }}
+      >
         <Link href="/signIn" passHref>
           <>
             <RiUser6Line />

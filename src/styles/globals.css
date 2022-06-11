@@ -25,6 +25,10 @@ body {
   overflow-x: hidden;
 }
 
+.disabled {
+  overflow: hidden;
+}
+
 .glass {
   background: rgba(255, 255, 255, 0.3);
   box-shadow: 0 8px 32px 0 rgba(31, 31, 31, 0.068);

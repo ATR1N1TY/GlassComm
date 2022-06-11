@@ -4,11 +4,14 @@ import { AiFillYoutube, AiFillLinkedin } from "react-icons/ai";
 import { BsFacebook } from "react-icons/bs";
 import logo from "../../public/LOGO.jpg";
 import Image from "next/image";
+import HamburgerMenu from "../components/hamburgerMenu/hamburgerMenu";
 
 const Contact = () => {
   return (
     <div className="bg-gradient-to-tr h-screen from-red-300 to-red-600 dark:from-zinc-900 dark:to-slate-900">
       <Navbar />
+      <HamburgerMenu />
+
       <div className="wrap flex items-center justify-center flex-col h-5/6 ">
         <p className=" text-5xl mb-16 dark:text-indigo-50">FIND ME ON</p>
         <div className="socialPlatforms flex text-black dark:text-indigo-50">

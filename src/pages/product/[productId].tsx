@@ -6,6 +6,7 @@ import Details from "../../components/product/details";
 import Gallery from "../../components/product/gallery";
 import { useRouter } from "next/router";
 import { NextPage } from "next";
+import HamburgerMenu from "../../components/hamburgerMenu/hamburgerMenu";
 
 const ProductPage: NextPage = () => {
   const [prod, setProd] = useState<Product>();
@@ -31,6 +32,7 @@ const ProductPage: NextPage = () => {
   return (
     <section className="productPage lg:h-screen  bg-gradient-to-tr from-red-300 to-red-700 dark:from-zinc-900 dark:to-slate-900 ">
       <Navbar />
+      <HamburgerMenu />
       <div className="flex flex-col justify-center h-5/6 ">
         <section className="product flex items-center md:justify-center mt-8 flex-col lg:flex-row">
           <Gallery productImages={prod.images} />

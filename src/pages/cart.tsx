@@ -7,6 +7,7 @@ import Image from "next/image";
 import atrinityLogo from "../../public/LOGO.jpg";
 import { Product } from "../types/types";
 import { RiShoppingCartLine } from "react-icons/ri";
+import HamburgerMenu from "../components/hamburgerMenu/hamburgerMenu";
 
 const Cart = () => {
   const [totalPrice, setTotalPrice] = useState(0);
@@ -32,6 +33,8 @@ const Cart = () => {
   return (
     <div className="cartPage bg-gradient-to-tr  from-red-300 to-red-700 dark:from-zinc-900 dark:to-slate-900">
       <Navbar />
+      <HamburgerMenu />
+
       {!cart.length ? (
         <main className="infod h-screen flex justify-center items-center font-bold text-5xl  md:text-9xl dark:text-slate-200">
           Your <RiShoppingCartLine className="mx-4" /> is MT!{" "}
@@ -39,6 +42,8 @@ const Cart = () => {
         </main>
       ) : (
         <main className="cartProductList min-h-[100vh]">
+          <HamburgerMenu />
+
           <div className="productContainer overflow-auto p-2 lg:p-8 mt-4 w-full flex flex-col items-center justify-center">
             {cart.map((product: Product) => (
               <CartProductCard

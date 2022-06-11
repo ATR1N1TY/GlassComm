@@ -1,10 +1,13 @@
 import React from "react";
 import Navbar from "../components/navbar/navbar";
+import HamburgerMenu from "../components/hamburgerMenu/hamburgerMenu";
 
 const signIn = () => {
   return (
     <div className=" w-screen h-screen bg-gradient-to-tr from-red-300 to-red-600 dark:from-zinc-900 dark:to-slate-900">
       <Navbar />
+      <HamburgerMenu />
+
       <main className="flex items-center justify-center mt-16">
         <div className="wrapper glass p-8 rounded-2xl ">
           <form action="sign-in flex flex-col ">

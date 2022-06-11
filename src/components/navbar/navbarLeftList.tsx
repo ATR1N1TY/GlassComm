@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
+import { globalContext } from "../../context/context";
 import Link from "next/link";
 
 const NavbarLeftList = (props: { useForNavbar: boolean }) => {
   const { useForNavbar } = props;
+  const { setShowMenu, switchMenuVisibility } = useContext(globalContext);
 
   return (
-    <nav className={`lists ${useForNavbar ? "hidden" : " mt-8"} sm:block`}>
+    <nav
+      className={`lists ${useForNavbar ? "hidden" : " mt-8"} sm:block`}
+      onClick={() => {
+        if (!useForNavbar) {
+          switchMenuVisibility();
+        }
+      }}
+    >
       <ul
         className={`listUl flex ${
           useForNavbar ? "" : "flex-col text-6xl justify-around h-96 "

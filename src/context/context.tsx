@@ -5,6 +5,8 @@ import { filterInitialState } from "./initialStates";
 import { storeInitialState, Product } from "../types/types";
 import useDarkTheme from "../hooks/useDarkTheme";
 import useExchangeRates from "../hooks/useExchangeRates";
+import useMenu from "../hooks/useMenu";
+
 // import { faker } from "@faker-js/faker";
 
 interface GlobalContext {}
@@ -15,7 +17,8 @@ export const globalContext = createContext<any>(initialState);
 
 export const GlobalContextProvider = ({ children }: any) => {
   const [products, setProducts] = useState(productList);
-  const [showMenu, setShowMenu] = useState(false);
+  // const [showMenu, setShowMenu] = useState(false);
+  const [showMenu, switchMenuVisibility] = useMenu();
   const [filterOn, setFilterOn] = useState(false);
   const [currencyData, setCurrencyData, rates] = useExchangeRates();
   const [darkTheme, setDarkTheme] = useDarkTheme();
@@ -36,7 +39,8 @@ export const GlobalContextProvider = ({ children }: any) => {
     filterInitialState
   );
 
-  console.log(globalState.cart);
+  // const switchMenuVisibility = () =>
+  //   setShowMenu((showMenu: boolean) => !showMenu);
 
   useEffect(() => {
     if (!Object.keys(rates).length) return;
@@ -75,7 +79,7 @@ export const GlobalContextProvider = ({ children }: any) => {
         filterOn,
         setFilterOn,
         showMenu,
-        setShowMenu,
+        switchMenuVisibility,
       }}
     >
       {children}
