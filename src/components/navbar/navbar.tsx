@@ -26,7 +26,7 @@ const Navbar = () => {
       <HamburgerMenuLogo />
 
       <div
-        className="filterView text-white lg:hidden"
+        className="filterView text-white sm:hidden"
         onClick={() => setFilterOn((filterOn: boolean) => !filterOn)}
       >
         <FaFilter />
