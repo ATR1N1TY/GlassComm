@@ -30,7 +30,10 @@ export const globalReducer = (state: any, action: any) => {
 
     case CART_ACTIONS.CHANGE_QTY:
       console.log("QTY CHANGED");
-      return {
+
+      console.log(state);
+
+      let statee = {
         ...state,
         cart: state.cart.filter((prod: Product) =>
           action.payload.id === prod.id
@@ -38,6 +41,10 @@ export const globalReducer = (state: any, action: any) => {
             : prod.quantity
         ),
       };
+
+      console.log(statee);
+
+      return statee;
 
     default:
       state;
