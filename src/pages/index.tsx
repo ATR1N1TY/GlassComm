@@ -14,7 +14,7 @@ const Home = () => {
   const screenWidth = useScreenWidth();
   const ref = "from-red-300 to-red-600";
   const [style, setStyle] = useState(
-    "slow fixed bg-orange-200 dark:bg-blue-900 rounded-full  sm:w-96 sm:h-96"
+    "slow fixed bg-orange-300 dark:bg-blue-900 rounded-full  sm:w-96 sm:h-96"
   );
 
   useEffect(() => {
@@ -31,11 +31,11 @@ const Home = () => {
 
   return (
     <div
-      className={`app bg-gradient-to-tr from-red-300 to-red-600 dark:from-zinc-900 dark:to-slate-900 relative ${
+      className={`app bg-gradient-to-tr from-red-200 to-red-500 dark:from-zinc-900 dark:to-slate-900 relative ${
         showMenu ? " overflow-hidden " : ""
       }`}
     >
-      {/* <BackgroundBlobs /> */}
+      {/* <BackgroundBlobs bgColors="bg-orange-200 dark:bg-blue-900" /> */}
 
       {/* <>
         <div
