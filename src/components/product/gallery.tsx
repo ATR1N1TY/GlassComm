@@ -20,12 +20,8 @@ const Gallery = (props: { productImages: string[] }) => {
 
   useEffect(() => {
     if (!images) return;
-
     setImages(productImages);
-    // console.log(images);
   }, [images, productImages]);
-
-  // console.log(images);
 
   return (
     <section className="gallery xl:mt-16  lg:mr-24 lg:w-1/3 m-4">
@@ -44,18 +40,11 @@ const Gallery = (props: { productImages: string[] }) => {
           <Image
             src={logo}
             loader={() => loadImage(image)}
-            alt="r"
+            alt="image"
             className=" h-32 w-32 rounded-xl hover:cursor-pointer"
             key={idx}
             onClick={() => setSelectedImg(image)}
           />
-          // <img
-          //   src={image}
-          //   alt={image}
-          //   className=" h-32 w-32 rounded-xl hover:cursor-pointer"
-          //   key={idx}
-          //   onClick={() => setSelectedImg(image)}
-          // />
         ))}
       </div>
     </section>
