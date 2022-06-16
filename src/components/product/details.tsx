@@ -8,7 +8,7 @@ const Details = (props: {
   product: IProduct;
   cart: IProduct[];
   dispatch: any;
-  currency: number;
+  currency: string;
 }) => {
   const { product, cart, dispatch, currency } = props;
 

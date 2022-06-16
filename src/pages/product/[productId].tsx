@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { globalContext } from "../../context/context";
-import { Product } from "../../types/types";
+import { IProduct } from "../../types/types";
 import Navbar from "../../components/navbar/navbar";
 import Details from "../../components/product/details";
 import Gallery from "../../components/product/gallery";
@@ -9,7 +9,7 @@ import { NextPage } from "next";
 import HamburgerMenu from "../../components/hamburgerMenu/hamburgerMenu";
 
 const ProductPage: NextPage = () => {
-  const [prod, setProd] = useState<Product>();
+  const [prod, setProd] = useState<IProduct>();
   const router = useRouter();
   const identifier = router.query.productId;
 
@@ -21,7 +21,7 @@ const ProductPage: NextPage = () => {
 
   useEffect(() => {
     if (!router.isReady) return;
-    const pr = products.find((product: Product) => product.id === identifier);
+    const pr = products.find((product: IProduct) => product.id === identifier);
     setProd(pr);
   }, [router.isReady, identifier, prod, products]);
 
