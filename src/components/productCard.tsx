@@ -41,7 +41,7 @@ const ProductCard = (props: {
       </Link>
       <footer className="productDetails absolute bottom-0 w-full p-4 cursor-pointer">
         <Link href={`/product/${product.id}`} passHref>
-          <>
+          <div className="linkWrapper">
             <section className="productName m-2 font-bold text-xl">
               {product.name}
             </section>
@@ -58,7 +58,7 @@ const ProductCard = (props: {
                 ""
               )}
             </section>
-          </>
+          </div>
         </Link>
       </footer>
 
