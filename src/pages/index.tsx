@@ -27,7 +27,7 @@ const Home = () => {
 
   return (
     <div className="app bg-gradient-to-tr from-red-200 to-red-500 dark:from-zinc-900 dark:to-slate-900 relative">
-      {/* <BackgroundBlobs bgColors="bg-orange-200 dark:bg-blue-900" /> */}
+      <BackgroundBlobs bgColors="" />
 
       <Navbar />
 
