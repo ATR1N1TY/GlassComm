@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 
-const useMenu = () => {
-  const [showMenu, setShowMenu] = useState(false);
+const useMenu = (): [boolean, () => void] => {
+  const [showMenu, setShowMenu] = useState<boolean>(false);
 
-  const switchMenuVisibility = () =>
-    setShowMenu((showMenu: boolean) => !showMenu);
+  const switchMenuVisibility = () => setShowMenu((showMenu) => !showMenu);
 
   useEffect(() => {
     showMenu

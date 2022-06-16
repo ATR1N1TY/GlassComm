@@ -7,22 +7,33 @@ import { RiCloseFill } from "react-icons/ri";
 import { CART_ACTIONS } from "../context/actions";
 import Link from "next/link";
 import { globalContext } from "../context/context";
+import { IProduct, GlobalAction } from "../types/types";
 
-const CartProductCard = ({ product, dispatch }: any) => {
+const CartProductCard = (props: {
+  product: IProduct;
+  dispatch: React.Dispatch<GlobalAction>;
+}) => {
+  const { product, dispatch } = props;
+
   const {
     currencyData: { to },
   } = useContext(globalContext);
+
+  const renderImage = (): string => product.images[0];
 
   console.log(product.quantity);
 
   return (
     <section className="cartProductCard glass rounded-xl flex items-center justify-between border-4 p-4 my-2 md:w-4/5 dark:bg-stone-800/50 dark:text-slate-300">
       <div className="img w-16 h-16 md:w-24 md:h-24">
-        <img
-          src={product.images[0]}
-          alt={product.name}
-          className="w-full h-full rounded-md md:rounded-xl "
-        />
+        <Link href={`/product/${product.id}`} passHref>
+          <Image
+            src={image}
+            loader={renderImage}
+            alt={product.name}
+            className="w-full h-full rounded-md md:rounded-xl hover:cursor-pointer"
+          />
+        </Link>
       </div>
       <div className="info">
         <Link href={`/product/${product.id}`} passHref>
@@ -41,7 +52,7 @@ const CartProductCard = ({ product, dispatch }: any) => {
         identifier={product.id}
       />
       <div className="totalPrice font-bold ml-4 lg:ml-0">
-        {to} {product.price * product.quantity}
+        {to} {Number(product.price) * product.quantity}
       </div>
       <button
         className="removeItem text-3xl"

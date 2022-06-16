@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { FILTER_ACTIONS } from "../context/actions";
+import { FilterAction } from "../types/types";
 
 // როგორ ავაწყო შეფასების კომპონენტი?
 // შევქმნა ცარიელი ლისტი
@@ -9,7 +10,11 @@ import { FILTER_ACTIONS } from "../context/actions";
 
 // როდესაც მომხმარებელი დააჭერს ვარსკვლავს დაიბეჭდოს მისი ინდექსი
 
-const RatingComponent = ({ productRating, dispatch }: any) => {
+const RatingComponent = (props: {
+  productRating: number;
+  dispatch?: React.Dispatch<FilterAction>;
+}) => {
+  const { productRating, dispatch } = props;
   // const [rating, setRating] = useState(productRating);
   // useEffect(() => {
   //   console.log(productRating);
@@ -27,6 +32,7 @@ const RatingComponent = ({ productRating, dispatch }: any) => {
                 className="inline"
                 // onClick={() => setRating(idx + 1)}
                 onClick={() =>
+                  dispatch &&
                   dispatch({
                     type: FILTER_ACTIONS.SORT_BY_RATINGS,
                     payload: idx,
@@ -39,6 +45,7 @@ const RatingComponent = ({ productRating, dispatch }: any) => {
                 className="inline"
                 // onClick={() => setRating(idx + 1)}
                 onClick={() =>
+                  dispatch &&
                   dispatch({
                     type: FILTER_ACTIONS.SORT_BY_RATINGS,
                     payload: idx,

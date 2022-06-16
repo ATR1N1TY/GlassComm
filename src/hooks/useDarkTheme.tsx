@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 
-const useDarkTheme = () => {
-  const [darkTheme, setDarkTheme] = useState(false);
+const useDarkTheme = (): [
+  boolean,
+  React.Dispatch<React.SetStateAction<boolean>>
+] => {
+  const [darkTheme, setDarkTheme] = useState<boolean>(false);
 
   useEffect(() => {
     const html = window.document.documentElement;

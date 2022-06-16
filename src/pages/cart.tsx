@@ -5,12 +5,12 @@ import Logo from "../components/logo";
 import Navbar from "../components/navbar/navbar";
 import Image from "next/image";
 import atrinityLogo from "../../public/LOGO.jpg";
-import { Product } from "../types/types";
+import { IProduct } from "../types/types";
 import { RiShoppingCartLine } from "react-icons/ri";
 import HamburgerMenu from "../components/hamburgerMenu/hamburgerMenu";
 
 const Cart = () => {
-  const [totalPrice, setTotalPrice] = useState(0);
+  const [totalPrice, setTotalPrice] = useState<number>(0);
 
   const {
     globalState: { cart },
@@ -24,7 +24,8 @@ const Cart = () => {
     setTotalPrice(
       (totalPrice) =>
         (totalPrice = cart.reduce(
-          (acc: number, curr: any) => acc + curr.price * curr.quantity,
+          (acc: number, curr: IProduct) =>
+            acc + Number(curr.price) * curr.quantity,
           0
         ))
     );
@@ -45,7 +46,7 @@ const Cart = () => {
           <HamburgerMenu />
 
           <div className="productContainer overflow-auto p-2 lg:p-8 mt-4 w-full flex flex-col items-center justify-center">
-            {cart.map((product: Product) => (
+            {cart.map((product: IProduct) => (
               <CartProductCard
                 key={product.id}
                 product={product}

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import ProductCard from "./productCard";
 import { globalContext } from "../context/context";
-import { Product } from "../types/types";
+import { IProduct } from "../types/types";
 
 const ProductList = () => {
   const {
@@ -22,41 +22,42 @@ const ProductList = () => {
     let filteredProducts = products;
 
     if (search_query) {
-      filteredProducts = filteredProducts.filter((product: Product) =>
+      filteredProducts = filteredProducts.filter((product: IProduct) =>
         product.name.toLowerCase().includes(search_query)
       );
     }
 
     if (min_price && max_price) {
       filteredProducts = filteredProducts.filter(
-        (product: Product) =>
-          Number(product.price) > min_price && Number(product.price) < max_price
+        (product: IProduct) =>
+          Number(product.price) > Number(min_price) &&
+          Number(product.price) < Number(max_price)
       );
     }
 
     if (by_order) {
-      filteredProducts.sort((prev: any, curr: any) =>
+      filteredProducts.sort((prev: IProduct, curr: IProduct) =>
         by_order === "ascending"
-          ? prev.price - curr.price
-          : curr.price - prev.price
+          ? Number(prev.price) - Number(curr.price)
+          : Number(curr.price) - Number(prev.price)
       );
     }
 
     if (!include_out_of_stock) {
       filteredProducts = filteredProducts.filter(
-        (product: Product) => product.inStock > 0
+        (product: IProduct) => product.inStock > 0
       );
     }
 
     if (include_fast_delivery_only) {
       filteredProducts = filteredProducts.filter(
-        (product: Product) => product.fastDelivery
+        (product: IProduct) => product.fastDelivery
       );
     }
 
     if (by_ratings) {
       filteredProducts = filteredProducts.filter(
-        (product: Product) => product.ratings >= by_ratings
+        (product: IProduct) => product.ratings >= by_ratings
       );
     }
 
@@ -66,7 +67,7 @@ const ProductList = () => {
   return (
     <div className="productList inline-grid gap-8 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-2 md:grid-cols-1 grid-rows-auto min-h-screen ">
       {/* <ProductCard /> */}
-      {filterProducts().map((product: any) => {
+      {filterProducts().map((product: IProduct) => {
         return (
           <ProductCard
             product={product}

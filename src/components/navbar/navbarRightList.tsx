@@ -64,7 +64,7 @@ const NavbarRightList = (props: { useForNavbar: boolean }) => {
       </span>
 
       <span
-        className="signIn-status hover:text-white"
+        className="signIn-status hover:text-white hover:cursor-pointer"
         onClick={() => {
           if (!useForNavbar) {
             switchMenuVisibility();
@@ -72,9 +72,7 @@ const NavbarRightList = (props: { useForNavbar: boolean }) => {
         }}
       >
         <Link href="/signIn" passHref>
-          <>
-            <RiUser6Line />
-          </>
+          <RiUser6Line />
         </Link>
       </span>
     </nav>

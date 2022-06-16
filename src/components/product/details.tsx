@@ -1,12 +1,12 @@
 import React from "react";
-import { Product } from "../../types/types";
+import { IProduct } from "../../types/types";
 import { RiShoppingCartFill, RiShoppingCartLine } from "react-icons/ri";
 import RatingComponent from "../ratingComponent";
 import { CART_ACTIONS } from "../../context/actions";
 
 const Details = (props: {
-  product: Product;
-  cart: Product[];
+  product: IProduct;
+  cart: IProduct[];
   dispatch: any;
   currency: number;
 }) => {
@@ -38,7 +38,7 @@ const Details = (props: {
       </div>
 
       <footer className="options flex">
-        {!cart.some((prod: Product) => prod?.id == product.id) ? (
+        {!cart.some((prod: IProduct) => prod?.id == product.id) ? (
           <button
             className="btn  px-16 rounded-xl text-amber-50 font-bold bg-orange-500 drop-shadow-md p-4"
             onClick={() =>

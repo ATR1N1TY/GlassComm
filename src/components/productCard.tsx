@@ -5,14 +5,20 @@ import Image from "next/image";
 import { RiShoppingCartLine } from "react-icons/ri";
 import { MdOutlineRemove } from "react-icons/md";
 import { CART_ACTIONS } from "../context/actions";
-import { Product } from "../types/types";
+import { IProduct, GlobalAction } from "../types/types";
 import RatingComponent from "./ratingComponent";
 import { FiPackage } from "react-icons/fi";
 import Link from "next/link";
 import logo from "../../public/LOGO.jpg";
 import { globalContext } from "../context/context";
 
-const ProductCard = ({ product, cart, dispatch }: any) => {
+const ProductCard = (props: {
+  product: IProduct;
+  cart: IProduct[];
+  dispatch: React.Dispatch<GlobalAction>;
+}) => {
+  const { product, cart, dispatch } = props;
+
   const imageLoader = () => {
     return product.images[0];
   };
@@ -56,7 +62,7 @@ const ProductCard = ({ product, cart, dispatch }: any) => {
         </Link>
       </footer>
 
-      {cart.some((prod: Product) => prod.id === product.id) ? (
+      {cart.some((prod: IProduct) => prod.id === product.id) ? (
         <div
           className=" z-10 cartOptions absolute text-3xl font-bold bottom-28   right-3 bg-white w-20 h-20 rounded-full flex justify-center items-center transition-colors dark:bg-neutral-600 dark:text-slate-200 hover:bg-red-600 dark:hover:bg-red-600 cursor-pointer "
           onClick={() =>
