@@ -3,13 +3,10 @@ import { globalReducer, filterReducer } from "./reducers";
 import { productList } from "./data";
 import { filterInitialState } from "./initialStates";
 import {
-  globalStateType,
+  GlobalContext,
   IProduct,
-  FilterState,
-  ExchangesRates,
-  CurrencyData,
-  GlobalAction,
-  FilterAction,
+  GlobalState,
+  GlobalContextProviderProps,
 } from "../types/types";
 import useDarkTheme from "../hooks/useDarkTheme";
 import useExchangeRates from "../hooks/useExchangeRates";
@@ -17,29 +14,7 @@ import useMenu from "../hooks/useMenu";
 
 // import { faker } from "@faker-js/faker";
 
-type GlobalContextType = {
-  globalState: globalStateType;
-  globalDispatch: React.Dispatch<GlobalAction>;
-  filterState: FilterState;
-  filterDispatch: React.Dispatch<FilterAction>;
-  currencyData: CurrencyData;
-  setCurrencyData: React.Dispatch<React.SetStateAction<CurrencyData>>;
-  rates: ExchangesRates;
-  darkTheme: boolean;
-  setDarkTheme: React.Dispatch<React.SetStateAction<boolean>>;
-  filterOn: boolean;
-  setFilterOn: React.Dispatch<React.SetStateAction<boolean>>;
-  showMenu: boolean;
-  switchMenuVisibility: () => void;
-};
-
-type GlobalContextProviderProps = {
-  children: React.ReactNode;
-};
-
-export const globalContext = createContext<GlobalContextType>(
-  {} as GlobalContextType
-);
+export const globalContext = createContext<GlobalContext>({} as GlobalContext);
 
 export const GlobalContextProvider = ({
   children,
@@ -51,7 +26,7 @@ export const GlobalContextProvider = ({
   const [currencyData, setCurrencyData, rates] = useExchangeRates();
   const [darkTheme, setDarkTheme] = useDarkTheme();
 
-  const globalInitialState: globalStateType = {
+  const globalInitialState: GlobalState = {
     products: products,
     cart: [],
     subtotal: 0,

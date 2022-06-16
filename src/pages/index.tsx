@@ -35,7 +35,7 @@ const Home = () => {
         showMenu ? " overflow-hidden " : ""
       }`}
     >
-      <BackgroundBlobs bgColors="bg-orange-200 dark:bg-blue-900" />
+      {/* <BackgroundBlobs bgColors="bg-orange-200 dark:bg-blue-900" /> */}
 
       {/* <>
         <div

@@ -1,3 +1,24 @@
+//type for context API and provider
+export interface GlobalContext {
+  globalState: GlobalState;
+  globalDispatch: React.Dispatch<GlobalAction>;
+  filterState: FilterState;
+  filterDispatch: React.Dispatch<FilterAction>;
+  currencyData: CurrencyData;
+  setCurrencyData: React.Dispatch<React.SetStateAction<CurrencyData>>;
+  rates: ExchangesRates;
+  darkTheme: boolean;
+  setDarkTheme: React.Dispatch<React.SetStateAction<boolean>>;
+  filterOn: boolean;
+  setFilterOn: React.Dispatch<React.SetStateAction<boolean>>;
+  showMenu: boolean;
+  switchMenuVisibility: () => void;
+}
+export interface GlobalContextProviderProps {
+  children: React.ReactNode;
+}
+
+//product object interface
 export interface IProduct {
   id: string;
   name: string;
@@ -10,18 +31,19 @@ export interface IProduct {
   quantity: number;
 }
 
-export type globalStateType = {
+// interfaces for globalState/store useReducer hook
+export interface GlobalState {
   products: IProduct[];
   cart: IProduct[];
   subtotal: number;
-};
-
+}
 export type GlobalAction =
   | { type: "add_product"; payload: IProduct }
   | { type: "remove_product"; payload: IProduct }
   | { type: "change_qty"; payload: { id: string; quantity: number } };
 
-export type FilterState = {
+//interfaces & types for filter useReducer
+export interface FilterState {
   search_query: string;
   min_price: string;
   max_price: string;
@@ -29,8 +51,7 @@ export type FilterState = {
   include_out_of_stock: boolean;
   include_fast_delivery_only: boolean;
   by_ratings: number;
-};
-
+}
 export type FilterAction =
   | { type: "search_by_query"; payload: string }
   | { type: "sort_by_price"; payload: string | null }
@@ -41,9 +62,11 @@ export type FilterAction =
   | { type: "show_fast_delivery_only"; payload: boolean }
   | { type: "clear_filter" };
 
-export type ExchangesRates = { [key: string]: number };
-
-export type CurrencyData = {
+//interfaces for useExchangeRate custom hook
+export interface ExchangesRates {
+  [key: string]: number;
+}
+export interface CurrencyData {
   to: string;
   from: string;
-};
+}
