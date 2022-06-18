@@ -64,7 +64,7 @@ const ProductCard = (props: {
 
       {cart.some((prod: IProduct) => prod.id === product.id) ? (
         <div
-          className=" z-10 cartOptions absolute text-3xl font-bold bottom-28   right-3 bg-white w-20 h-20 rounded-full flex justify-center items-center transition-colors dark:bg-neutral-600 dark:text-slate-200 hover:bg-red-600 dark:hover:bg-red-600 cursor-pointer "
+          className=" z-0 cartOptions absolute text-3xl font-bold bottom-28   right-3 bg-white w-20 h-20 rounded-full flex justify-center items-center transition-colors dark:bg-neutral-600 dark:text-slate-200 hover:bg-red-600 dark:hover:bg-red-600 cursor-pointer "
           onClick={() =>
             dispatch({ type: CART_ACTIONS.REMOVE_PRODUCT, payload: product })
           }
@@ -73,7 +73,7 @@ const ProductCard = (props: {
         </div>
       ) : (
         <div
-          className=" z-10 cartOptions absolute text-3xl font-bold bottom-28   right-3 bg-white w-20 h-20  rounded-full flex justify-center items-center transition-colors dark:bg-neutral-600 dark:text-slate-200 hover:bg-green-500 dark:hover:bg-green-500 cursor-pointer"
+          className=" z-0 cartOptions absolute text-3xl font-bold bottom-28   right-3 bg-white w-20 h-20  rounded-full flex justify-center items-center transition-colors dark:bg-neutral-600 dark:text-slate-200 hover:bg-green-500 dark:hover:bg-green-500 cursor-pointer"
           onClick={() =>
             dispatch({ type: CART_ACTIONS.ADD_PRODUCT, payload: product })
           }
