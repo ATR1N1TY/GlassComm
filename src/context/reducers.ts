@@ -1,7 +1,7 @@
 import { CART_ACTIONS, FILTER_ACTIONS } from "./actions";
 import {
   IProduct,
-  globalStateType,
+  GlobalState,
   GlobalAction,
   FilterState,
   FilterAction,
@@ -19,9 +19,9 @@ import {
 //what type is state?
 
 export const globalReducer = (
-  state: globalStateType,
+  state: GlobalState,
   action: GlobalAction
-): globalStateType => {
+): GlobalState => {
   switch (action.type) {
     case CART_ACTIONS.ADD_PRODUCT:
       return {
