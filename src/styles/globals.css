@@ -117,29 +117,6 @@ footer {
   clear: both;
 }
 
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  min-width: 120px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-}
-/* Links inside the dropdown */
-.dropdown-content span {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-/* Change color of dropdown links on hover */
-.dropdown-content span:hover {
-  background-color: rgba(221, 221, 221, 0.151);
-}
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;

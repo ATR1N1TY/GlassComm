@@ -10,14 +10,14 @@ const Exchange = () => {
   // console.log(Object.keys(rates));
 
   return (
-    <div className="dropdown">
+    <div className="dropdown relative inline-block">
       <div className="dropbtn">
         <RiExchangeDollarLine />
       </div>
-      <div className="dropdown-content glass rounded-xl max-h-64 overflow-y-auto overflow-x-hidden ">
+      <div className="dropdown-content hidden absolute glass rounded-xl max-h-64 overflow-y-auto overflow-x-hidden ">
         {currencies.map((currency, idx) => (
           <span
-            className="option"
+            className="option block hover:bg-zinc-100/25 hover:rounded-md  text-black px-4 py-3"
             key={idx}
             onClick={(e) => {
               setCurrencyData({
