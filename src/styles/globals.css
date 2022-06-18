@@ -44,12 +44,15 @@ li:hover {
 ::-webkit-scrollbar {
   width: 10px;
 }
+
 ::-webkit-scrollbar-track {
   background-image: white;
 }
+
 ::-webkit-scrollbar-thumb {
   background: rgb(39, 39, 39);
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(21, 21, 21);
 }
@@ -65,6 +68,7 @@ input[type="radio"] {
   vertical-align: middle;
   -webkit-appearance: none;
 }
+
 input[type="radio"]:after {
   content: "";
   display: block;
@@ -77,9 +81,11 @@ input[type="radio"]:after {
   background-color: rgb(251, 251, 251);
   border-radius: 25px;
 }
+
 input[type="radio"]:checked:after {
   background-color: rgb(253, 107, 107);
 }
+
 input[type="checkbox"] {
   width: 20px;
   height: 20px;
@@ -89,4 +95,5 @@ input[type="checkbox"] {
 
 .dropdown:hover .dropdown-content {
   display: block;
+  background-color: #f8d06a;
 }
