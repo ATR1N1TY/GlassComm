@@ -13,7 +13,6 @@
 }
 
 html {
-  /* width: 100vw; */
   height: 100vh;
 }
 
@@ -34,15 +33,9 @@ body {
   box-shadow: 0 8px 32px 0 rgba(31, 31, 31, 0.068);
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
-  /* border-radius: 50px; */
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.bgGlass {
-  /* background: rgba(255, 255, 255, 0.2); */
-  /* box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3); */
-  /* color: rgb(189, 152, 189); */
-}
 .bgGlassDark {
   background: rgba(22, 22, 22, 0.3);
 }
@@ -51,8 +44,6 @@ li {
   padding-left: 0.5rem;
   cursor: pointer;
   font-weight: 500;
-  /* color: rgb(87, 87, 87); */
-  /* border: 3px solid red; */
 }
 
 li:hover {
@@ -69,7 +60,6 @@ li:hover {
 
 .name:hover {
   display: block;
-  /* text-transform: uppercase; */
   color: rgb(226, 83, 26);
 }
 
@@ -80,9 +70,6 @@ li:hover {
 .productCard {
   transition: all ease-out 0.1s;
 }
-/* .productCard:hover {
-  background: rgba(235, 235, 235, 0.787);
-} */
 
 .checkoutBg {
   background-color: #fffedb;
@@ -111,30 +98,16 @@ li:hover {
   animation-duration: 2s;
 }
 
-/* width */
+/* CUSTOMIZING SCROLLBAR */
 ::-webkit-scrollbar {
   width: 10px;
 }
-
-/* Track */
 ::-webkit-scrollbar-track {
-  /* background: linear-gradient(
-    180deg,
-    rgba(233, 127, 127, 1) 0%,
-    rgba(188, 36, 36, 1) 100%
-  ); */
   background-image: white;
 }
-
-/* Handle */
 ::-webkit-scrollbar-thumb {
-  /* background: #eca6a6; */
   background: rgb(39, 39, 39);
-  /* border-radius: 10px; */
-  /* border-radius: 10px 0px 10px 0px; */
 }
-
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(21, 21, 21);
 }
@@ -145,13 +118,10 @@ input[type="radio"] {
   cursor: pointer;
   display: inline-block;
   height: 20px;
-  /* margin-right: 15px; */
   position: relative;
   width: 20px;
   vertical-align: middle;
   -webkit-appearance: none;
-  /* position: absolute; */
-  /* margin: 0; */
 }
 input[type="radio"]:after {
   content: "";
@@ -164,7 +134,6 @@ input[type="radio"]:after {
   transform: translate(-50%, -50%);
   background-color: rgb(251, 251, 251);
   border-radius: 25px;
-  /* z-index: 10; */
 }
 input[type="radio"]:checked:after {
   background-color: rgb(253, 107, 107);
@@ -179,13 +148,6 @@ input[type="checkbox"] {
 
 footer {
   clear: both;
-}
-.dropbtn {
-  /* background-color: #04aa6d; */
-  /* color: white; */
-  /* padding: 16px; */
-  /* font-size: 16px; */
-  /* border: none; */
 }
 
 /* The container <div> - needed to position the dropdown content */
@@ -273,55 +235,13 @@ footer {
   }
 }
 
-.productCard {
-  animation: product-card-animation 0.3s cubic-bezier(0.77, 0, 0.175, 1);
-}
-.gallery {
-  animation: product-card-animation 0.3s cubic-bezier(0.77, 0, 0.175, 1);
-}
-.details {
-  animation: product-card-animation 0.3s cubic-bezier(0.77, 0, 0.175, 1);
-}
-.filterContainer {
-  animation: product-card-animation 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-
 .menu {
   animation: blur-anima 0.3s ease forwards;
 }
 
-.listUl {
-  animation: product-card-animation 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-
-.links {
-  animation: product-card-animation 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-
-@keyframes product-card-animation {
-  0% {
-    transform: translateY(-50px) scale(0.99);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-  }
-}
-@keyframes product-page-animation {
-  0% {
-    transform: translateY(0) scale(1);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(-50px) scale(0.99);
-    opacity: 1;
-  }
-}
-
 @keyframes blur-anima {
   0% {
-    backdrop-filter: blur();
+    backdrop-filter: blur(0);
   }
   100% {
     backdrop-filter: blur(25px);

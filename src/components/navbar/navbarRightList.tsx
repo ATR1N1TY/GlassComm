@@ -22,7 +22,7 @@ const NavbarRightList = (props: { useForNavbar: boolean }) => {
 
   return (
     <nav
-      className={`links text-2xl ${
+      className={`links animate-swipeDownAndGrow text-2xl ${
         useForNavbar
           ? "hidden"
           : "text-6xl flex dark:text-slate-50 justify-evenly mt-10 "

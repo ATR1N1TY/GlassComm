@@ -13,7 +13,7 @@ const Details = (props: {
   const { product, cart, dispatch, currency } = props;
 
   return (
-    <section className="details glass rounded-3xl p-8 lg:w-1/3 2xl:h-auto mt-8 lg:mt-0 m-4">
+    <section className="details animate-swipeDownAndGrow glass rounded-3xl p-8 lg:w-1/3 2xl:h-auto mt-8 lg:mt-0 m-4">
       <h4 className="delivery uppercase font-bold xl:text-md  2xl:text-xl text-slate-300 mb-2">
         {product.fastDelivery ? "FAST DELIVERY" : "Regular Delivery"}
       </h4>

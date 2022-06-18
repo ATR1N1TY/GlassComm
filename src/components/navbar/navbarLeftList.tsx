@@ -16,7 +16,7 @@ const NavbarLeftList = (props: { useForNavbar: boolean }) => {
       }}
     >
       <ul
-        className={`listUl flex ${
+        className={`listUl animate-swipeDownAndGrow flex ${
           useForNavbar ? "" : "flex-col text-6xl justify-around h-96 "
         } dark:text-slate-50 `}
       >

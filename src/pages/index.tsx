@@ -60,7 +60,7 @@ const Home = () => {
         <aside
           className={`filterContainer ${
             filterOn ? "block" : "hidden"
-          }  flex w-1/4 xl:w-auto h-[600px] xl:h-auto xl:align-middle justify-center lg: xl:justify-center`}
+          } animate-swipeDownAndGrow flex w-1/4 xl:w-auto h-[600px] xl:h-auto xl:align-middle justify-center lg: xl:justify-center`}
         >
           <Filter />
         </aside>

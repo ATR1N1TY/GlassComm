@@ -24,7 +24,7 @@ const Gallery = (props: { productImages: string[] }) => {
   }, [images, productImages]);
 
   return (
-    <section className="gallery xl:mt-16  lg:mr-24 lg:w-1/3 m-4">
+    <section className="gallery animate-swipeDownAndGrow xl:mt-16  lg:mr-24 lg:w-1/3 m-4">
       <div className="currentImage flex justify-center">
         {/* <Image src={image} className="GenImage rounded-2xl" alt="rame" /> */}
         <Image
