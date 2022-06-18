@@ -26,7 +26,11 @@ const ProductPage: NextPage = () => {
   }, [router.isReady, identifier, prod, products]);
 
   if (!prod) {
-    return <div>Loading...</div>;
+    return (
+      <div className=" bg-gradient-to-tr from-red-300 to-red-700 dark:from-zinc-900 dark:to-slate-900 h-screen flex items-center justify-center text-2xl">
+        <p>LOADING...</p>
+      </div>
+    );
   }
 
   return (
