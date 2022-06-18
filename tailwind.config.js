@@ -10,6 +10,8 @@ module.exports = {
         swipeDownAndGrow:
           "swipeDownAndGrow 0.3s cubic-bezier(0.77, 0, 0.175, 1)",
         blurMenu: "menuBlur 0.3s ease forwards",
+        customSpin: "normalizedSpin 8s infinite linear",
+        customFastSpin: "normalizedSpin 2s infinite linear",
       },
       keyframes: {
         swipeDownAndGrow: {
@@ -29,6 +31,15 @@ module.exports = {
           },
           "100%": {
             "backdrop-filter": "blur(25px)",
+          },
+        },
+
+        normalizedSpin: {
+          "0%": {
+            transform: "rotate(0deg)",
+          },
+          "100%": {
+            transform: "rotate(360deg)",
           },
         },
       },

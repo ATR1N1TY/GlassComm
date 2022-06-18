@@ -59,17 +59,17 @@ const Cart = () => {
               darkTheme ? "checkoutBgDark" : "checkoutBg"
             } text-yellow-900 dark:text-slate-200 p-8 lg:m-4 lg:h-96 flex items-center justify-around flex-col md:flex-row`}
           >
-            <div className="credit hover:animate-pulse font-bold my-8 lg:mx-4 text-xl md:text-3xl relative">
+            <div className="credit  hover:animate-pulse font-bold my-8 lg:mx-4 text-xl md:text-3xl relative">
               <Logo />
               <p>
                 Made with 💖 By{" "}
                 <a href="https://github.com/atr1n1ty">ATR!N!TY</a>{" "}
               </p>
-              <div className="absolute spinner -top-2 left-2/3 ">
+              <div className="alogo w-12 h-12 absolute animate-customSpin hover:animate-customFastSpin -top-2 left-2/3 ">
                 <Image
                   src={atrinityLogo}
-                  width={"50px"}
-                  height={"50px"}
+                  width={48}
+                  height={48}
                   className="rounded-full"
                   alt="r"
                 />
