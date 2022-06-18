@@ -6,6 +6,9 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {
+      fontFamily: {
+        sarina: "'Sarina', cursive",
+      },
       animation: {
         swipeDownAndGrow:
           "swipeDownAndGrow 0.3s cubic-bezier(0.77, 0, 0.175, 1)",

@@ -7,7 +7,7 @@ interface props {
 
 const Logo = React.forwardRef(({ onClick, href }: props, ref: any) => {
   return (
-    <div className="name text-3xl  ">
+    <div className="name font-sarina block cursor-pointer text-neutral-600 hover:text-orange-600  text-3xl  ">
       <a href={href} onClick={onClick}>
         <div className="logo w-full h-2 flex ">
           <div className="orange w-1/2 h-full bg-amber-900 "></div>
