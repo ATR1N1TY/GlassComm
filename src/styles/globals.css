@@ -234,16 +234,3 @@ footer {
     transform: scale(1.7) translate(-150px, -150px);
   }
 }
-
-.menu {
-  animation: blur-anima 0.3s ease forwards;
-}
-
-@keyframes blur-anima {
-  0% {
-    backdrop-filter: blur(0);
-  }
-  100% {
-    backdrop-filter: blur(25px);
-  }
-}

@@ -15,7 +15,7 @@ const HamburgerMenu = () => {
 
   return (
     <div
-      className={`menu p-8  top-0 left-0 right-0  h-screen  ${
+      className={`menu animate-blurMenu p-8  top-0 left-0 right-0  h-screen  ${
         showMenu ? "absolute" : "hidden"
       } z-10 overflow-hidden `}
     >

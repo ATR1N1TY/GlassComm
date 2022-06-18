@@ -9,6 +9,7 @@ module.exports = {
       animation: {
         swipeDownAndGrow:
           "swipeDownAndGrow 0.3s cubic-bezier(0.77, 0, 0.175, 1)",
+        blurMenu: "menuBlur 0.3s ease forwards",
       },
       keyframes: {
         swipeDownAndGrow: {
@@ -19,6 +20,15 @@ module.exports = {
           "100%": {
             transform: "translateY(0) scale(1)",
             opacity: "1",
+          },
+        },
+
+        menuBlur: {
+          "0%": {
+            "backdrop-fliter": "blur(0)",
+          },
+          "100%": {
+            "backdrop-filter": "blur(25px)",
           },
         },
       },
