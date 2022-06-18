@@ -11,7 +11,7 @@ module.exports = {
       },
       animation: {
         swipeDownAndGrow:
-          "swipeDownAndGrow 0.3s cubic-bezier(0.77, 0, 0.175, 1)",
+          "swipeDownAndGrow 0.5s cubic-bezier(0.77, 0, 0.175, 1)",
         blurMenu: "menuBlur 0.3s ease forwards",
         customSpin: "normalizedSpin 8s infinite linear",
         customFastSpin: "normalizedSpin 2s infinite linear",
@@ -19,7 +19,7 @@ module.exports = {
       keyframes: {
         swipeDownAndGrow: {
           "0%": {
-            transform: "translateY(-50%) scale(0.4)",
+            transform: "translateY(-25%) scale(0.8)",
             opacity: "0",
           },
           "100%": {

@@ -1,10 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Sarina&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,700&display=swap");
-/* font: Roboto
-/  font weights: 300; 400; 500; 700; 700 Italic */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .glass {
+    @apply bg-white/30 shadow-xl border-2 border-white border-opacity-20;
+  }
+  .disabled {
+    @apply overflow-hidden;
+  }
+}
 
 *,
 *::before,
@@ -21,19 +29,6 @@ body {
   padding: 0;
   margin: 0;
   color: rgb(41, 41, 41);
-  /* overflow-x: hidden; */
-}
-
-.disabled {
-  overflow: hidden;
-}
-
-.glass {
-  background: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 8px 32px 0 rgba(31, 31, 31, 0.068);
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 li {
@@ -64,7 +59,6 @@ li:hover {
   background-size: cover;
 }
 
-/* CUSTOMIZING SCROLLBAR */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -77,7 +71,6 @@ li:hover {
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(21, 21, 21);
 }
-/* ********************************* */
 
 input[type="radio"] {
   background-color: rgba(255, 255, 255, 0.6);

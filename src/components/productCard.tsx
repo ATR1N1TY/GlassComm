@@ -26,7 +26,7 @@ const ProductCard = (props: {
   const { currencyData } = useContext(globalContext);
 
   return (
-    <article className="productCard animate-swipeDownAndGrow relative glass  w-72 h-96  rounded-2xl overflow-hidden dark:bg-stone-800/50 dark:text-slate-300 dark:hover:bg-stone-700/50 hover:bg-purple-100/25">
+    <article className="productCard animate-swipeDownAndGrow relative glass  w-72 h-96  rounded-2xl overflow-hidden dark:bg-stone-800/50 dark:text-slate-300 dark:hover:bg-stone-700/50 hover:bg-white/50 transition-all">
       <Link href={`/product/${product.id}`} passHref>
         <div className="imgWrap absolute -left-16 -top-24 rounded-xl cursor-pointer">
           <Image
