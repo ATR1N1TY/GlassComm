@@ -36,10 +36,6 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.bgGlassDark {
-  background: rgba(22, 22, 22, 0.3);
-}
-
 li {
   padding-left: 0.5rem;
   cursor: pointer;
@@ -178,37 +174,4 @@ footer {
 .dropdown:hover .dropbtn {
   /* background-color: #3e8e41; */
   /* z-index: 10; */
-}
-
-.slow {
-  animation: slow 15s ease-in-out alternate infinite;
-}
-
-.delay1000 {
-  animation-delay: 5s;
-}
-.delay1300 {
-  animation-delay: 1s;
-}
-.delay900 {
-  animation-delay: 3s;
-}
-
-.delay1500 {
-  animation-delay: 7s;
-}
-
-@keyframes slow {
-  0% {
-    transform: scale(1.8) translate(0, 0);
-  }
-  33% {
-    transform: scale(1.9) translate(-150px, 0);
-  }
-  66% {
-    transform: scale(1.5) translate(-75px, 150px);
-  }
-  100% {
-    transform: scale(1.7) translate(-150px, -150px);
-  }
 }

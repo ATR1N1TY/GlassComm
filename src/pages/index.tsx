@@ -5,7 +5,6 @@ import Filter from "../components/filter";
 import { globalContext } from "../context/context";
 import { useContext, useEffect, useState } from "react";
 import { useScreenWidth } from "../hooks/useScreenWidth";
-import BackgroundBlobs from "../animations/backgroundBlobs";
 import HamburgerMenu from "../components/hamburgerMenu/hamburgerMenu";
 
 //This is were all begins, this is main page. here we are rendering Navbar, Filter & ProductList
@@ -35,23 +34,6 @@ const Home = () => {
         showMenu ? " overflow-hidden " : ""
       }`}
     >
-      {/* <BackgroundBlobs bgColors="bg-orange-200 dark:bg-blue-900" /> */}
-
-      {/* <>
-        <div
-          className={`blobOne ${style} delay1000 hidden sm:block top-1/2 blur-2xl`}
-        ></div>
-        <div
-          className={`blobTwo ${style} delay900 bottom-0 right-0 blur-3xl`}
-        ></div>
-        <div
-          className={`blobThree ${style} delay1300 hidden sm:block bottom-1/2 left-1/2 -translate-x-3/4 -translate-y-3/4 blur-3xl`}
-        ></div>
-        <div
-          className={`blobFour ${style} delay1500 bottom-0 left-1/3 top-1/2 blur-2xl`}
-        ></div>
-      </> */}
-
       <Navbar />
 
       <HamburgerMenu />
