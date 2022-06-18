@@ -27,7 +27,7 @@ const Filter = () => {
         <input
           name="search"
           type="text"
-          className="search glass rounded-full px-4 py-2 xl:pl-4 2xl:py-2 2xl:pl-4 xl:pr-16 placeholder:text-pink-100 dark:placeholder:text-gray-800"
+          className="search glass rounded-full px-4 py-2 xl:pl-4 2xl:py-2 2xl:pl-4 xl:pr-16 placeholder:text-pink-100 "
           placeholder="Search food..."
           onChange={(e) =>
             filterDispatch({

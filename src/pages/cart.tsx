@@ -56,8 +56,8 @@ const Cart = () => {
           </div>
           <footer
             className={`checkout rounded-3xl ${
-              darkTheme ? "checkoutBgDark" : "checkoutBg"
-            } text-yellow-900 dark:text-slate-200 p-8 lg:m-4 lg:h-96 flex items-center justify-around flex-col md:flex-row`}
+              !darkTheme ? "bg-footerPatternLight" : "bg-footerPatternDark"
+            } bg-fixed bg-cover text-yellow-900 dark:text-slate-200 p-8 lg:m-4 lg:h-96 flex items-center justify-around flex-col md:flex-row`}
           >
             <div className="credit  hover:animate-pulse font-bold my-8 lg:mx-4 text-xl md:text-3xl relative">
               <Logo />

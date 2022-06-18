@@ -24,7 +24,7 @@ const CartProductCard = (props: {
   console.log(product.quantity);
 
   return (
-    <section className="cartProductCard glass rounded-xl flex items-center justify-between border-4 p-4 my-2 md:w-4/5 dark:bg-stone-800/50 dark:text-slate-300">
+    <section className="cartProductCard glass animate-swipeDownAndGrow rounded-xl flex items-center justify-between border-4 p-4 my-2 md:w-4/5 dark:bg-stone-800/50 dark:text-slate-300">
       <div className="img w-16 h-16 md:w-24 md:h-24">
         <Link href={`/product/${product.id}`} passHref>
           <Image

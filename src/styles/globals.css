@@ -41,24 +41,6 @@ li:hover {
   color: rgb(255, 255, 255);
 }
 
-.imgWrap {
-  border-radius: 50%;
-}
-
-.checkoutBg {
-  background-color: #fffedb;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg fill-opacity='0.49'%3E%3Cpolygon fill='%23ffebba' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%23ffd99a' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%23ffc77a' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%23ffb459' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%23FFA235' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
-  background-attachment: fixed;
-  background-size: cover;
-}
-
-.checkoutBgDark {
-  background-color: #171724;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%231d212d' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%23232b36' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%232a3640' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%23304049' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%23364A52' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
-  background-attachment: fixed;
-  background-size: cover;
-}
-
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -98,7 +80,6 @@ input[type="radio"]:after {
 input[type="radio"]:checked:after {
   background-color: rgb(253, 107, 107);
 }
-
 input[type="checkbox"] {
   width: 20px;
   height: 20px;
@@ -106,11 +87,6 @@ input[type="checkbox"] {
   accent-color: rgb(243, 208, 208);
 }
 
-footer {
-  clear: both;
-}
-
-/* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;
 }

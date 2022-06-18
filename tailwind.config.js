@@ -9,6 +9,12 @@ module.exports = {
       fontFamily: {
         sarina: "'Sarina', cursive",
       },
+
+      backgroundImage: {
+        footerPatternLight: "url('../../public/bgFooterLight.svg')",
+        footerPatternDark: "url('../../public/bgFooterDark.svg')",
+      },
+
       animation: {
         swipeDownAndGrow:
           "swipeDownAndGrow 0.5s cubic-bezier(0.77, 0, 0.175, 1)",
