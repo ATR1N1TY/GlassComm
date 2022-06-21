@@ -4,6 +4,9 @@ import { RiShoppingCartFill, RiShoppingCartLine } from "react-icons/ri";
 import RatingComponent from "../ratingComponent";
 import { CART_ACTIONS } from "../../context/actions";
 
+//Details component is used in single product page component
+// here we display product information
+
 const Details = (props: {
   product: IProduct;
   cart: IProduct[];

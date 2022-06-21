@@ -8,6 +8,9 @@ import image2 from "../../public/imagesForTesting/image2.jpg";
 import image3 from "../../public/imagesForTesting/image3.jpg";
 import Image from "next/image";
 
+//also used in single product page component
+//here we use useState to create array with 5 elements and then populate it with images from productImages
+
 const Gallery = (props: { productImages: string[] }) => {
   const { productImages } = props;
 

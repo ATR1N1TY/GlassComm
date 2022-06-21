@@ -8,6 +8,10 @@ import { useRouter } from "next/router";
 import { NextPage } from "next";
 import HamburgerMenu from "../../components/hamburgerMenu/hamburgerMenu";
 
+//here we combine gallery and details components
+//then we create links for each product using received id from Link component from product card component
+// and with Next.js router
+
 const ProductPage: NextPage = () => {
   const [prod, setProd] = useState<IProduct>();
   const router = useRouter();
