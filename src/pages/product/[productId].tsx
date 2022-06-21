@@ -7,6 +7,8 @@ import Gallery from "../../components/product/gallery";
 import { useRouter } from "next/router";
 import { NextPage } from "next";
 import HamburgerMenu from "../../components/hamburgerMenu/hamburgerMenu";
+import logo from "../../../public/logo.jpg";
+import Image from "next/image";
 
 //here we combine gallery and details components
 //then we create links for each product using received id from Link component from product card component
@@ -32,7 +34,13 @@ const ProductPage: NextPage = () => {
   if (!prod) {
     return (
       <div className=" bg-gradient-to-tr from-red-300 to-red-700 dark:from-zinc-900 dark:to-slate-900 h-screen flex items-center justify-center text-2xl">
-        <p>LOADING...</p>
+        <Image
+          className=" animate-customFastSpin rounded-full"
+          src={logo}
+          alt="a3Logo"
+          width={200}
+          height={200}
+        />
       </div>
     );
   }
