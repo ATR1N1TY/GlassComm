@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
 import { globalContext } from "../../context/context";
 
+// simple hamburger menu logo made with only tailwind and some divs
+
 const HamburgerMenuLogo = () => {
-  const { showMenu, switchMenuVisibility } = useContext(globalContext);
+  const { switchMenuVisibility } = useContext(globalContext);
 
   return (
     <div className="flex flex-col sm:hidden" onClick={switchMenuVisibility}>

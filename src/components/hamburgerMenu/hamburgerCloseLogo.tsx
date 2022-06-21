@@ -1,5 +1,7 @@
 import React from "react";
 
+// close menu logo made with tailwind and two divs
+
 const HamburgerCloseLogo = () => {
   return (
     <>

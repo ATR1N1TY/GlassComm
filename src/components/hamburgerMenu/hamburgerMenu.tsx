@@ -4,6 +4,9 @@ import NavbarLeftList from "../navbar/navbarLeftList";
 import NavbarRightList from "../navbar/navbarRightList";
 import HamburgerCloseLogo from "./hamburgerCloseLogo";
 
+// simple Hamburger menu
+// when clicked on open or close button of the menu, class "disabled" is added or removed from body classlist
+
 const HamburgerMenu = () => {
   const { showMenu, switchMenuVisibility } = useContext(globalContext);
 
