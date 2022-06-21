@@ -6,6 +6,7 @@ import logo from "../../public/logo.jpg";
 import { FaReact } from "react-icons/fa";
 import { SiTypescript, SiNextdotjs, SiTailwindcss } from "react-icons/si";
 import fakerlogo from "../../public/fakerjslogo.svg";
+import { AiOutlineGithub } from "react-icons/ai";
 
 //describing why I made this app
 
@@ -23,25 +24,25 @@ const About = () => {
           </h1>
         </section>
         <section className="right w-1/2 flex flex-col items-center justify-center gap-4 ">
-          <p className="max-w-xl glass p-4 hover:scale-110 transition-all rounded-xl hover:font-semibold text-neutral-300">
+          <p className="glass aboutP">
             Building Ecommerce website 🛒, requires complex State Management and
             diverse logic to control the flow of the state and the Components{" "}
           </p>
 
-          <p className="max-w-xl glass p-4 hover:scale-110 transition-all  rounded-xl hover:font-semibold text-neutral-300">
+          <p className="glass aboutP">
             This is why I decided to Build this project, as a pre-junior
             developer👨‍💻 It was a really long journey! I knew this and I
             sharpened my skills, which made me who I am today!🦾
           </p>
 
-          <p className="max-w-xl glass p-4 hover:scale-110 transition-all rounded-xl hover:font-semibold text-neutral-300">
+          <p className="glass aboutP">
             But most important🚀 and most exciting thing which I could not
             identify early with, is that now I have infinite number of ideas
             about how to improve code quality and make it more readible for
             fellow developers!
           </p>
 
-          <p className="max-w-xl glass p-4 hover:scale-110 transition-all rounded-xl hover:font-semibold text-neutral-300">
+          <p className="glass aboutP">
             if you or your team liked my projects, I&apos;m EAGER to help with
             ZEST and WONDERWORKING!
           </p>
@@ -53,6 +54,7 @@ const About = () => {
           <SiNextdotjs className="mr-10 text-white drop-shadow-lg" />
           <SiTypescript className="mr-10 text-blue-600 drop-shadow-lg" />
           <SiTailwindcss className="mr-10 text-blue-500 drop-shadow-lg" />
+          <AiOutlineGithub />
           <Image src={fakerlogo} alt="fakerjs logo" width={96} height={96} />
           <a
             href="https://exchangerate.host/#/"
