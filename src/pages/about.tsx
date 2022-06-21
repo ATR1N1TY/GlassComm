@@ -8,10 +8,6 @@ import { SiTypescript, SiNextdotjs, SiTailwindcss } from "react-icons/si";
 import fakerlogo from "../../public/fakerjslogo.svg";
 
 const About = () => {
-  const imageLoader = (link: string) => {
-    return link;
-  };
-
   return (
     <div className="about bg-gradient-to-tr from-red-300 to-red-600 dark:from-zinc-900 dark:to-slate-900 h-screen ">
       <Navbar />
@@ -25,7 +21,6 @@ const About = () => {
           </h1>
         </section>
         <section className="right w-1/2 flex flex-col items-center justify-center gap-4 ">
-          <p className="uppercase text-stone-50 text-base ">hover to read</p>
           <p className="max-w-xl glass p-4 hover:scale-110 transition-all rounded-xl hover:font-semibold text-neutral-300">
             Building Ecommerce website 🛒, requires complex State Management and
             diverse logic to control the flow of the state and the Components{" "}
@@ -51,7 +46,6 @@ const About = () => {
         </section>
       </main>
       <footer className="techs px-8 flex justify-between glass  absolute w-full rounded-t-xl p-4 bottom-0 items-center text-8xl">
-        {/* <h1>technologies I used for the developement of this website</h1> */}
         <div className="techs flex flex-row justify-start">
           <FaReact className="mr-10 text-blue-400 drop-shadow-lg" />
           <SiNextdotjs className="mr-10 text-white drop-shadow-lg" />
