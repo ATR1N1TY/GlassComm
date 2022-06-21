@@ -10,6 +10,8 @@ import { RiUser6Line } from "react-icons/ri";
 
 import Exchange from "../exchange";
 
+//here we have cart, exchange, dark mode switcher and sign in
+
 const NavbarRightList = (props: { useForNavbar: boolean }) => {
   const { useForNavbar } = props;
 

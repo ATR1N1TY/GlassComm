@@ -7,6 +7,11 @@ import NavbarLeftList from "./navbarLeftList";
 import NavbarRightList from "./navbarRightList";
 import HamburgerMenuLogo from "../hamburgerMenu/hamburgerMenuLogo";
 
+// Navbar uses two components: navbarLeftList and navbarRight list
+// this is because we also are using this two components in hamburger menu
+// see the following components to learn how it works
+// and third, in the middle, is the logo of a website
+
 const Navbar = () => {
   const { setFilterOn } = useContext(globalContext);
 

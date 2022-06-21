@@ -2,6 +2,12 @@ import React, { useContext } from "react";
 import { globalContext } from "../../context/context";
 import Link from "next/link";
 
+// straight-fowrard navigation for Trending, about and Contact pages
+//as you know this project uses Next.js so we use Link component from Next.js
+//with useForNavbar prop we decide how we should this component
+//if its true component will be rendered regularly for navbar
+//else we use flex to use this component inside hamburger menu component
+
 const NavbarLeftList = (props: { useForNavbar: boolean }) => {
   const { useForNavbar } = props;
   const { switchMenuVisibility } = useContext(globalContext);
