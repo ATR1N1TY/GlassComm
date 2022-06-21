@@ -21,7 +21,9 @@ const NavbarLeftList = (props: { useForNavbar: boolean }) => {
         } dark:text-slate-50 `}
       >
         <li>Trending</li>
-        <li>About</li>
+        <li>
+          <Link href="/about">About</Link>
+        </li>
         <li>
           <Link href="/contact">Contact</Link>
         </li>
