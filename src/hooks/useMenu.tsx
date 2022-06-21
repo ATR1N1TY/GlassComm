@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
 
+// made for hamburger menu
+// this is the logic of the hamburger menu
+// and here we have function that toggles menu on/off
+
 const useMenu = (): [boolean, () => void] => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
 

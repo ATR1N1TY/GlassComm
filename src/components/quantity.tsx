@@ -5,6 +5,10 @@ import { CART_ACTIONS } from "../context/actions";
 import { globalContext } from "../context/context";
 import { productList } from "../context/data";
 
+//Basic quantity component, it can increase the count of products and if there's no more products
+// you can't really increased it more
+//doens't go bellow zero
+
 interface QuantityProps {
   qty: number;
   identifier: string;

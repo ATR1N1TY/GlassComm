@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
 
+//this hook takes advantage of tailwind css
+//with tailwind we can go to dark mode really fast and that's amazing!
+// this hook adds "dark" to the class list of the html tag
+// "light" otherwise does nothing, it's just for simplicity
+
 const useDarkTheme = (): [
   boolean,
   React.Dispatch<React.SetStateAction<boolean>>

@@ -7,6 +7,9 @@ import { RiShoppingCartLine } from "react-icons/ri";
 import HamburgerMenu from "../components/hamburgerMenu/hamburgerMenu";
 import Footer from "../components/footer";
 
+//here we are mapping through cart object if theres nothing in cart we render that there's nothing
+// if there's something we render that somethings(products)
+
 const Cart = () => {
   const {
     globalState: { cart },

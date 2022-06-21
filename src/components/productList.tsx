@@ -3,6 +3,9 @@ import ProductCard from "./productCard";
 import { globalContext } from "../context/context";
 import { IProduct } from "../types/types";
 
+// with this component we are mapping every product available with productCard component
+//but before we map we filter our components with filterState object
+
 const ProductList = () => {
   const {
     globalState: { products, cart },

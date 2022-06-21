@@ -6,17 +6,8 @@ import {
   FilterState,
   FilterAction,
 } from "../types/types";
-// interface action {
-//   type: string;
-//   payload: string | number;
-// }
 
-//   const globalInitialState: storeInitialState = {
-//     products: products,
-//     cart: [],
-//   };
-
-//what type is state?
+//here we have useReducer reducer functions where we define what we should return based of dispatch funciton
 
 export const globalReducer = (
   state: GlobalState,
@@ -57,8 +48,6 @@ export const filterReducer = (
   state: FilterState,
   action: FilterAction
 ): FilterState => {
-  // console.log(action.payload);
-
   switch (action.type) {
     case FILTER_ACTIONS.SEARCH_BY_QUERY:
       return { ...state, search_query: action.payload };

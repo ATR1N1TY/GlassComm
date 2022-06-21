@@ -8,13 +8,10 @@ import { useScreenWidth } from "../hooks/useScreenWidth";
 import HamburgerMenu from "../components/hamburgerMenu/hamburgerMenu";
 
 //This is were all begins, this is main page. here we are rendering Navbar, Filter & ProductList
+
 const Home = () => {
   const { filterOn, setFilterOn, showMenu } = useContext(globalContext);
   const screenWidth = useScreenWidth();
-  const ref = "from-red-300 to-red-600";
-  const [style, setStyle] = useState(
-    "slow fixed bg-orange-300 dark:bg-blue-900 rounded-full  sm:w-96 sm:h-96"
-  );
 
   useEffect(() => {
     if (screenWidth && screenWidth < 1024) {

@@ -7,6 +7,10 @@ import { FcClearFilters } from "react-icons/fc";
 import RatingComponent from "./ratingComponent";
 import { FILTER_ACTIONS } from "../context/actions";
 
+// each of the little part of this component has its own comment for easy navigation
+// filter component works by filterReducer hook(see in reducers folder)
+//IMPORTANT NOTE: the filtering logic is in the productList component
+
 const Filter = () => {
   const {
     filterState: {

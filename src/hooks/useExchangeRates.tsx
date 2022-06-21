@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { ExchangesRates, CurrencyData } from "../types/types";
 
+// with this hook we are fetching data from exchangerate's latest endpoint
+// end returning the relevant values
+
 const useExchangeRates = (): [
   CurrencyData,
   React.Dispatch<React.SetStateAction<CurrencyData>>,

@@ -14,6 +14,9 @@
 //   );
 // };
 
+// this is the data generated with faker.js
+// here we have 100 products which have properties: id, name, price, images, inStock, fastDelivery, ratings, desctription and quantity
+
 export const productList = [
   {
     id: "f3e2ce54-04fd-4cf8-8a16-eec432054494",

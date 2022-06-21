@@ -3,11 +3,15 @@ import Image from "next/image";
 import image from "../../public/imagesForTesting/image.jpg";
 import Quantity from "./quantity";
 import { RiCloseFill } from "react-icons/ri";
-// import { Product } from "../types/types";
 import { CART_ACTIONS } from "../context/actions";
 import Link from "next/link";
 import { globalContext } from "../context/context";
 import { IProduct, GlobalAction } from "../types/types";
+
+// as the component name describes, this is a component for a cart
+// this is a product card for a cart page
+// here we are displaying product data and using Quantity component by which user can change the quantity
+// of the product
 
 const CartProductCard = (props: {
   product: IProduct;

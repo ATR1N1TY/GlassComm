@@ -1,5 +1,7 @@
 import { FilterState } from "../types/types";
 
+//there we define initial states for the app but currently this is only used for filterInitialState
+
 export const filterInitialState: FilterState = {
   search_query: "",
   min_price: "0",

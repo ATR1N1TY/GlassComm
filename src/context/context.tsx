@@ -14,6 +14,11 @@ import useMenu from "../hooks/useMenu";
 
 // import { faker } from "@faker-js/faker";
 
+//I think this is the most important file on the entire project
+//this is the place from where we start and from the sun comes
+//here we use custom hooks, useReducers, whole state and many things!
+//and then distributing directly to the neccesarry components
+
 export const globalContext = createContext<GlobalContext>({} as GlobalContext);
 
 export const GlobalContextProvider = ({

@@ -2,6 +2,8 @@ import React from "react";
 import Navbar from "../components/navbar/navbar";
 import HamburgerMenu from "../components/hamburgerMenu/hamburgerMenu";
 
+//simple login page, nothing crazy, not ready for backend right now
+
 const signIn = () => {
   return (
     <div className=" w-screen h-screen bg-gradient-to-tr from-red-300 to-red-600 dark:from-zinc-900 dark:to-slate-900">

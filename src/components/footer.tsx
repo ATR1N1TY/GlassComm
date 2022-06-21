@@ -4,6 +4,11 @@ import Logo from "./logo";
 import atrinityLogo from "../../public/LOGO.jpg";
 import { CurrencyData, IProduct } from "../types/types";
 
+//here i've hidden a little easter egg
+// but really small
+// when you hover on webpage logo
+// my logo spings faster as it's excited!
+
 const Footer = (props: {
   darkTheme: boolean;
   cart: IProduct[];

@@ -6,6 +6,8 @@ import logo from "../../public/LOGO.jpg";
 import Image from "next/image";
 import HamburgerMenu from "../components/hamburgerMenu/hamburgerMenu";
 
+// from here you can check my social media platforms
+
 const Contact = () => {
   return (
     <div className="bg-gradient-to-tr h-screen from-red-300 to-red-600 dark:from-zinc-900 dark:to-slate-900">

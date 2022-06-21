@@ -3,11 +3,14 @@ import { globalContext } from "../context/context";
 import { CURRENCY_ACTIONS } from "../context/actions";
 import { RiExchangeDollarLine } from "react-icons/ri";
 
+//Exchange component is also a dropdown menu made with 98% tailwind and 2% css
+// we are mapping through currencis array which is bassically the keys of the exchange rate object
+// received from exchangerates API
+// when user clicks one of the currency the currency is changed in the whole app using useReducer hook
+
 const Exchange = () => {
-  // ["USD $", "EUR €", "JPY ¥", "GBP £", "GEL ₾"];
   const { currencyData, setCurrencyData, rates } = useContext(globalContext);
   const currencies = Object.keys(rates);
-  // console.log(Object.keys(rates));
 
   return (
     <div className="dropdown relative inline-block">

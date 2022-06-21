@@ -5,6 +5,8 @@ interface props {
   href?: string;
 }
 
+//logo component of the app for many future use
+
 const Logo = React.forwardRef(({ onClick, href }: props, ref: any) => {
   return (
     <div className="name font-sarina block cursor-pointer text-neutral-600 hover:text-orange-600  text-3xl  ">

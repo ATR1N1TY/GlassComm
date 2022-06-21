@@ -12,6 +12,8 @@ import Link from "next/link";
 import logo from "../../public/LOGO.jpg";
 import { globalContext } from "../context/context";
 
+//we use this component on the main page of the app, here we are rendering product data as you might have guessed
+
 const ProductCard = (props: {
   product: IProduct;
   cart: IProduct[];

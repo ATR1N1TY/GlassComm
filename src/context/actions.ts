@@ -1,3 +1,5 @@
+//describing enums for using in useReducer hooks, this is the style used in redux
+
 export enum CART_ACTIONS {
   ADD_PRODUCT = "add_product",
   REMOVE_PRODUCT = "remove_product",

@@ -7,6 +7,8 @@ import { FaReact } from "react-icons/fa";
 import { SiTypescript, SiNextdotjs, SiTailwindcss } from "react-icons/si";
 import fakerlogo from "../../public/fakerjslogo.svg";
 
+//describing why I made this app
+
 const About = () => {
   return (
     <div className="about bg-gradient-to-tr from-red-300 to-red-600 dark:from-zinc-900 dark:to-slate-900 h-screen ">
