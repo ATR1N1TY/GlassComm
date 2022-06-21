@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { globalContext } from "../../context/context";
 import Link from "next/link";
 import Logo from "../logo";
@@ -14,9 +14,21 @@ import HamburgerMenuLogo from "../hamburgerMenu/hamburgerMenuLogo";
 
 const Navbar = () => {
   const { setFilterOn } = useContext(globalContext);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const [filterIconHidden, setFilterIconHidden] = useState<boolean>(false);
+
+  //hide filter icon when we are not in product list page
+  useEffect(() => {
+    setFilterIconHidden(() =>
+      headerRef.current?.parentElement?.classList[0] === "app" ? false : true
+    );
+  }, [filterIconHidden]);
 
   return (
-    <header className="navbar glass p-6 flex align-middle justify-between relative  dark:bg-gray-900/25  dark:text-stone-300 ">
+    <header
+      ref={headerRef}
+      className="navbar glass p-6 flex align-middle justify-between relative  dark:bg-gray-900/25  dark:text-stone-300 "
+    >
       {/* navigation */}
       <NavbarLeftList useForNavbar={true} />
 
@@ -31,7 +43,9 @@ const Navbar = () => {
       <HamburgerMenuLogo />
 
       <div
-        className="filterView text-white sm:hidden"
+        className={`filterView text-white sm:hidden ${
+          filterIconHidden ? "hidden" : "block"
+        }`}
         onClick={() => setFilterOn((filterOn: boolean) => !filterOn)}
       >
         <FaFilter />
