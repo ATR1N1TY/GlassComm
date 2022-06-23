@@ -69,8 +69,6 @@ export const GlobalContextProvider = ({
     );
   }, [rates, currencyData]);
 
-  console.log(globalState);
-
   return (
     <globalContext.Provider
       value={{

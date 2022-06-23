@@ -13,7 +13,7 @@
     @apply overflow-hidden;
   }
   .aboutP {
-    @apply max-w-xl p-4 hover:scale-110 transition-all  rounded-xl hover:font-semibold text-neutral-300;
+    @apply xl:max-w-xl lg:max-w-md min-w-[300px]  p-4 hover:scale-110 transition-all 2xl:text-lg xl:text-base rounded-xl hover:font-semibold text-neutral-300;
   }
 }
 

@@ -12,20 +12,21 @@ import { AiOutlineGithub } from "react-icons/ai";
 
 const About = () => {
   return (
-    <div className="about bg-gradient-to-tr from-red-300 to-red-600 dark:from-zinc-900 dark:to-slate-900 h-screen ">
+    <div className="about bg-gradient-to-tr from-red-300 to-red-600 dark:from-zinc-900 dark:to-slate-900 md:h-screen">
       <Navbar />
       <HamburgerMenu />
 
-      <main className="main flex  mt-20  text-2xl ">
+      <main className="main md:h-[calc(100%-76px-132px)] flex flex-col justify-center items-center  lg:flex-row  2xl:text-2xl">
         <section className="left w-1/2 flex items-center justify-center">
-          <h1 className="max-w-2xl m-16 text-7xl font-bold text-neutral-300 drop-shadow-xl">
-            Ecommerce website is one of the best and interesting projects that a
-            Web developer can build!
+          <h1 className="2xl:max-w-2xl min-w-[300px] sm:max-w-md text-3xl my-4 lg:text-4xl 2xl:m-16 xl:m-8 2xl:text-7xl font-bold text-neutral-300 drop-shadow-xl">
+            Ecommerce App is one of the best and interesting project that a Web
+            developer can build!
           </h1>
         </section>
+
         <section className="right w-1/2 flex flex-col items-center justify-center gap-4 ">
           <p className="glass aboutP">
-            Building Ecommerce website 🛒, requires complex State Management and
+            Building Ecommerce App 🛒, requires complex State Management and
             diverse logic to control the flow of the state and the Components{" "}
           </p>
 
@@ -48,25 +49,28 @@ const About = () => {
           </p>
         </section>
       </main>
-      <footer className="techs px-8 flex justify-between glass  absolute w-full rounded-t-xl p-4 bottom-0 items-center text-8xl">
-        <div className="techs flex flex-row justify-start">
-          <FaReact className="mr-10 text-blue-400 drop-shadow-lg" />
-          <SiNextdotjs className="mr-10 text-white drop-shadow-lg" />
-          <SiTypescript className="mr-10 text-blue-600 drop-shadow-lg" />
-          <SiTailwindcss className="mr-10 text-blue-500 drop-shadow-lg" />
-          <AiOutlineGithub />
-          <Image src={fakerlogo} alt="fakerjs logo" width={96} height={96} />
+
+      <footer className="techs  px-4 md:px-8 flex flex-col sm:flex-row justify-center sm:justify-between glass md:absolute mt-4 md:mt-0 w-full rounded-t-xl p-4 bottom-0 items-center text-9xl sm:text-4xl lg:text-8xl">
+        <div className="techs flex flex-col items-center sm:flex-row sm:justify-start">
+          <FaReact className="m-4 md:m-0 md:mr-10 sm:mr-5 text-blue-400 drop-shadow-lg" />
+          <SiNextdotjs className="m-4 md:m-0 md:mr-10 sm:mr-5 text-white drop-shadow-lg" />
+          <SiTypescript className="m-4 md:m-0 md:mr-10 sm:mr-5 text-blue-600 drop-shadow-lg" />
+          <SiTailwindcss className="m-4 md:m-0 md:mr-10 sm:mr-5 text-blue-500 drop-shadow-lg" />
+          <AiOutlineGithub className="m-4 md:m-0 md:mr-10 sm:mr-5 drop-shadow-lg" />
+          <div className="fakerjswrapper w-32 h-32 sm:w-9 sm:h-9 lg:w-24 lg:h-24">
+            <Image src={fakerlogo} alt="fakerjs logo" />
+          </div>
           <a
             href="https://exchangerate.host/#/"
             target="_blank"
             rel="noreferrer"
-            className="text-xl font-bold my-auto mx-4 "
+            className=" sm:text-xs md:text-sm  text-xl font-bold my-4 sm:mx-4 "
           >
-            exchangerate.host (API)
+            exchangerate.host API
           </a>
         </div>
 
-        <div className="tex w-24 h-24 ">
+        <div className="text w-12  md:w-24 md:h-24">
           <Image src={logo} alt="a3 logo" className="rounded-full" />
         </div>
       </footer>
