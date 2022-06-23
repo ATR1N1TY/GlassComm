@@ -2,7 +2,7 @@ import React from "react";
 import HamburgerMenu from "../components/hamburgerMenu/hamburgerMenu";
 import Navbar from "../components/navbar/navbar";
 import Image from "next/image";
-import logo from "../../public/logo.jpg";
+import logo from "../../public/LOGO.jpg";
 import { FaReact } from "react-icons/fa";
 import { SiTypescript, SiNextdotjs, SiTailwindcss } from "react-icons/si";
 import fakerlogo from "../../public/fakerjslogo.svg";

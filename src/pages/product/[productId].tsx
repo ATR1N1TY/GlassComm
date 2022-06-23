@@ -7,7 +7,7 @@ import Gallery from "../../components/product/gallery";
 import { useRouter } from "next/router";
 import { NextPage } from "next";
 import HamburgerMenu from "../../components/hamburgerMenu/hamburgerMenu";
-import logo from "../../../public/logo.jpg";
+import logo from "../../../public/LOGO.jpg";
 import Image from "next/image";
 
 //here we combine gallery and details components
