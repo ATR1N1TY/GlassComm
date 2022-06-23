@@ -17,6 +17,10 @@ const Filter = () => {
       include_out_of_stock,
       include_fast_delivery_only,
       by_ratings,
+      by_order,
+      search_query,
+      min_price,
+      max_price,
     },
     filterDispatch,
   } = useContext(globalContext);
@@ -31,6 +35,7 @@ const Filter = () => {
         <input
           name="search"
           type="text"
+          value={search_query}
           className="search glass rounded-full px-4 py-2 xl:pl-4 2xl:py-2 2xl:pl-4 xl:pr-16 placeholder:text-pink-100 "
           placeholder="Search food..."
           onChange={(e) =>
@@ -54,6 +59,7 @@ const Filter = () => {
             type="text"
             className="glass rounded-full xl:w-24 xl:mx-4 p-2 placeholder:text-pink-100  text-center m-4 xl:m-0"
             placeholder="MIN"
+            value={min_price === "0" ? "" : min_price}
             onChange={(e) =>
               filterDispatch({
                 type: FILTER_ACTIONS.REMOVE_PRICES_BELOW,
@@ -66,6 +72,7 @@ const Filter = () => {
             type="text"
             className="glass rounded-full  xl:w-24 mt-2 p-2  placeholder:text-pink-100 text-center m-4 xl:m-0"
             placeholder="MAX"
+            value={max_price === "999999999" ? "" : max_price}
             onChange={(e) =>
               filterDispatch({
                 type: FILTER_ACTIONS.REMOVE_PRICES_UPPER,
@@ -76,7 +83,7 @@ const Filter = () => {
         </div>
 
         {/* price order: ascending or descending */}
-        <div className="xl:ml-4 inline font-bold xl:m-4 xl:my-4 xl:inline xl:hidden 2xl:inline ">
+        <div className="xl:ml-4 inline font-bold xl:m-4 xl:my-4  xl:hidden 2xl:inline ">
           Order:
         </div>
         <label htmlFor="desc" className="xl:ml-2">
@@ -85,6 +92,7 @@ const Filter = () => {
             type="radio"
             name="desc"
             className="mx-2"
+            checked={by_order === "ascending" ? true : false}
             onChange={() =>
               filterDispatch({
                 type: FILTER_ACTIONS.SORT_BY_PRICE,
@@ -99,6 +107,7 @@ const Filter = () => {
             type="radio"
             name="desc"
             className="mx-2"
+            checked={by_order === "descending" ? true : false}
             onChange={() =>
               filterDispatch({
                 type: FILTER_ACTIONS.SORT_BY_PRICE,
